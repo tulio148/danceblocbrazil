@@ -68,9 +68,10 @@ Route::post('/term/store', [TermsController::class, 'store'])->name('terms.store
 Route::post('/term/update', [TermsController::class, 'update'])->name('terms.update');
 Route::delete('/term/{term}', [TermsController::class, 'destroy'])->name('terms.destroy');
 
-
-Route::post('/order/store', [OrdersController::class, 'store'])->name('order.store');
-Route::post('/order/delete_class', [OrdersController::class, 'delete_class'])->name('order.delete_class');
+Route::middleware('auth')->group(function () {
+    Route::post('/order/store', [OrdersController::class, 'store'])->name('order.store');
+    Route::post('/order/delete_class', [OrdersController::class, 'delete_class'])->name('order.delete_class');
+});
 
 Route::post('/payment', [PaymentController::class, 'store'])->name('payment');
 
