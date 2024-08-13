@@ -13,6 +13,7 @@ use Square\Models\OrderLineItem;
 use Square\Models\CreateOrderRequest;
 use Square\Models\UpdateOrderRequest;
 use Square\Models\OrderLineItemDiscount;
+use Illuminate\Support\Facades\Auth;
 
 class OrdersService
 {
@@ -25,12 +26,12 @@ class OrdersService
         $idempotency_key = uniqid();
 
         $client = app(SquareClient::class);
-        $user = auth()->user();
+        $user = Auth::user();;
         if (!$user->student_id) {
             app(StudentService::class)->store($user);
         }
         $source = new OrderSource();
-        $student_id = auth()->user()->student_id;
+        $student_id = $user->student_id;
 
         foreach ($items_ids as $item) {
             $orderLineItem = new OrderLineItem(1);
@@ -82,11 +83,11 @@ class OrdersService
         $items_ids = [$class_id];
         $orderLineItems = [];
 
-        $student_id = auth()->user()->student_id;
+        $student_id = Auth::user()->student_id;
         $idempotency_key = uniqid();
 
         $client = app(SquareClient::class);
-        $user = auth()->user();
+        $user = Auth::user();
         if (!$user->student_id) {
             app(StudentService::class)->store($user);
         }
@@ -165,7 +166,7 @@ class OrdersService
     {
 
         $class_uid = $request->uid;
-        $student_id = auth()->user()->student_id;
+        $student_id = Auth::user()->student_id;
         $idempotency_key = uniqid();
 
         $client = app(SquareClient::class);

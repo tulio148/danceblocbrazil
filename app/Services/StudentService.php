@@ -7,6 +7,7 @@ use App\Models\Orders;
 use App\Models\Student;
 use Square\SquareClient;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Square\Models\CreateCustomerRequest;
 
 class StudentService
@@ -56,7 +57,7 @@ class StudentService
     public function addClass(Request $request)
     {
         $order_id = $request->input('id');
-        $student = auth()->user()->student;
+        $student = Auth::user()->student;
         $order = Orders::find($order_id);
 
         if ($order) {
