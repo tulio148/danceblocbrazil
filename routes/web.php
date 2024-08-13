@@ -13,17 +13,10 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
-use Spatie\Sitemap\SitemapGenerator;
 
 
 
-Route::get('/sitemap', function () {
-    SitemapGenerator::create('https://tuliong.com')
-        ->getSitemap()
-        ->writeToDisk('public', 'sitemap.xml');
 
-    return response()->json(['message' => 'Sitemap generated successfully']);
-});
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
