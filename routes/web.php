@@ -29,7 +29,7 @@ Route::get('/about', function () {
     return Inertia::render('About');
 })->name('mission');
 
-Route::get('/events', function () {
+Route::get('/samba-carnival-dance-events', function () {
     return Inertia::render('Events/Events');
 })->name('events');
 
@@ -37,7 +37,7 @@ Route::get('/faq', function () {
     return Inertia::render('FAQ');
 })->name('faq');
 
-Route::get('/costumes', function () {
+Route::get('/carnival-themed-costume-hire', function () {
     return Inertia::render('Costumes/Costumes');
 })->name('costumes');
 
@@ -54,10 +54,10 @@ Route::post('/event-enquire', [ContactController::class, 'event'])->name('contac
 Route::post('/costume-enquire', [ContactController::class, 'costume'])->name('contact.costume');
 
 
-Route::get('/classes', [ClassesController::class, 'index'])->name('classes');
+Route::get('/samba-dance-classes', [ClassesController::class, 'index'])->name('classes');
 
 Route::get('/classes/create', [ClassesController::class, 'create'])->name('classes.create');
-Route::get('/classes/{class}', [ClassesController::class, 'show'])->name('classes.show');
+Route::get('/samba-dance-classes/{class}', [ClassesController::class, 'show'])->name('classes.show');
 Route::delete('/classes/{class}', [ClassesController::class, 'destroy'])->name('classes.destroy');
 Route::get('/classes/{class}/enroll', [ClassesController::class, 'enroll'])->name('classes.enroll')->middleware('auth');
 

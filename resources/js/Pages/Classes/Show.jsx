@@ -10,7 +10,6 @@ import {
     faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 import { Head } from "@inertiajs/react";
-import { Transition } from "@headlessui/react";
 
 export default function Show({ auth, class_, enrolled_classes }) {
     const isEnrolled = enrolled_classes.reduce((enrolled, item) => {
@@ -22,18 +21,7 @@ export default function Show({ auth, class_, enrolled_classes }) {
             <Head title={class_.name} />
 
             <h1 className="tracking-widest text-4xl text-white font-extralight text-right py-5 mt-16 relative">
-                <Transition
-                    show={true}
-                    appear={true}
-                    enter="transition-opacity ease-linear duration-1000"
-                    enterFrom="opacity-0"
-                    enterTo="opacity-100"
-                    leave="transition-opacity duration-1000"
-                    leaveFrom="opacity-100"
-                    leaveTo="opacity-0"
-                >
-                    {class_.name}
-                </Transition>
+                {class_.name}
             </h1>
 
             <div className="flex flex-col justify-between gap-4 border-b bg-gradient-to-b from-white/90 from-70% max-w-xs w-full h-96 px-6 py-8 rounded-3xl shadow mx-2 my-6 z-40">
