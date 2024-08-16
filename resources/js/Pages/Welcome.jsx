@@ -160,7 +160,7 @@ export default function Welcome({ auth }) {
             </Head>
             <Layout user={auth.user}>
                 {/* HERO */}
-                <div className="flex flex-col justify-around  bg-[url('/background.webp')] bg-cover bg-center h-screen w-full lg:bg-center">
+                <div className="flex flex-col justify-around bg-[url('/background.webp')] bg-fixed bg-cover bg-center h-screen w-full lg:bg-center">
                     <div id="logo-text" className="w-full flex justify-end">
                         <h1 className=" max-w-md md:max-w-lg  tracking-widest text-6xl sm:text-[12vw] lg:text-[10vw] xl:text-[8.5vw]     text-white font-bold text-right pb-20 mt-16 mx-2 lg:mr-10 ">
                             dance <span className="text-db-pink">bloc</span> Bra

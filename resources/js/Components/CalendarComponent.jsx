@@ -153,22 +153,20 @@ export default function CalendarComponent({ classesData }) {
                     const isNotSunday = index !== 0;
                     return (
                         isNotSunday && (
-                            <>
+                            <div
+                                key={index}
+                                className="font-medium text-center text-md tracking-wider cursor-pointer"
+                                onClick={() => setActiveDay(index)}
+                            >
+                                {weekday} {date.getDate()}
                                 <div
-                                    key={index}
-                                    className="font-medium text-center text-md tracking-wider cursor-pointer"
-                                    onClick={() => setActiveDay(index)}
-                                >
-                                    {weekday} {date.getDate()}
-                                    <div
-                                        className={`w-full border-t-4 border-db-pink  transition duration-500  ${
-                                            index === activeDay
-                                                ? "scale-x-100"
-                                                : "scale-x-0"
-                                        }`}
-                                    ></div>
-                                </div>
-                            </>
+                                    className={`w-full border-t-4 border-db-pink  transition duration-500  ${
+                                        index === activeDay
+                                            ? "scale-x-100"
+                                            : "scale-x-0"
+                                    }`}
+                                ></div>
+                            </div>
                         )
                     );
                 })}

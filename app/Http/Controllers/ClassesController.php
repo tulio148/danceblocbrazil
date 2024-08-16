@@ -16,15 +16,13 @@ class ClassesController extends Controller
     {
         $now = new \DateTime();
 
-        // Get all classes and filter by datetime
         $classes = Classes::all()->filter(function ($class) use ($now) {
             return new \DateTime($class->datetime) > $now;
-        })->values(); // Reset keys to ensure consistency in the array
+        })->values();
 
-        // Get all terms and filter by end_date
         $terms = Terms::all()->filter(function ($term) use ($now) {
             return new \DateTime($term->end_date) > $now;
-        })->values(); // Reset keys to ensure consistency in the array
+        })->values();
 
         return Inertia::render('Classes/Classes', [
             'classes' => $classes,
@@ -36,6 +34,7 @@ class ClassesController extends Controller
     public function show(Classes $class)
     {
         $user = auth()->user();
+        dd($user);
         $student = $user->student ?? [];
         $enrolled_classes = $student->classes ?? [];
         return Inertia::render('Classes/Show', [

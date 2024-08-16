@@ -91,21 +91,22 @@ export default function Classes({ auth, classes, terms }) {
             };
         });
     };
-
+    const today = new Date();
     const groupedData = groupClassesByTerm(terms, classes);
-    console.log(groupedData[0].end_date);
-    console.log(groupedData[0].classes[0].datetime);
+    const nextCourse = groupedData.find(
+        (term) => new Date(term.start_date) > today
+    );
+
     // const [showFilter, setShowFilter] = useState(false);
     // const [style, setStyle] = useState("");
     // const [level, setLevel] = useState("");
-
-    console.log(groupedData);
 
     // const filteredClasses = classes.filter((item) => {
     //     if (level !== "" && item.level !== level) return false;
     //     if (style !== "" && item.style !== style) return false;
     //     return true;
     // });
+
     const handleClick = (id, offset = 0) => {
         const targetElement = document.getElementById(id);
         if (targetElement) {
@@ -132,8 +133,14 @@ export default function Classes({ auth, classes, terms }) {
                     <button onClick={() => handleClick("header-terms", 80)}>
                         <div className="flex gap-3 items-center">
                             <div className="text-white bg-db-pink text-xl max-w-40 sm:max-w-fit p-2 rounded sm:text-3xl">
-                                next course starts:{" "}
-                                {formatDate(groupedData[0].start_date)}
+                                {nextCourse ? (
+                                    <>
+                                        next course starts:{" "}
+                                        {formatDate(nextCourse.start_date)}
+                                    </>
+                                ) : (
+                                    "No upcoming courses"
+                                )}
                             </div>
                             <div className="animate-bounce">
                                 <FontAwesomeIcon
@@ -183,6 +190,7 @@ export default function Classes({ auth, classes, terms }) {
                     className="lg:min-w-[700px] sm:min-w-[500px] min-w-[320px] rounded-xl text-white font-thin tracking-widest text-7xl md:text-8xl   "
                 ></div>
             </div>
+
             {/* <div className=" lg:min-w-[700px] sm:min-w-[500px] min-w-full flex flex-wrap gap-3 mt-8 px-5">
                 <button
                     onClick={() => setShowFilter(!showFilter)}
@@ -247,6 +255,7 @@ export default function Classes({ auth, classes, terms }) {
                     </div>
                 </div>
             )} */}
+
             <div className="flex flex-wrap max-w-5xl justify-center gap-8 py-8 px-4 mb-[400px] ">
                 {groupedData.map((term) => (
                     <div key={term.id}>
