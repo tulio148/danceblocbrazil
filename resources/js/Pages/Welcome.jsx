@@ -172,9 +172,9 @@ export default function Welcome({ auth }) {
                     </div>
                     <div
                         id="heading0"
-                        className=" w-full bg-gradient-to-b h-fit from-db-pink/70 from-30% to-db-pink/90 to-50% py-1  shadow-md shadow-db-pink/30 mb-12"
+                        className=" w-full bg-gradient-to-b h-fit from-db-pink/70 from-30% to-db-pink/90 to-50% py-1  shadow-md shadow-db-pink/30 mb-12 opacity-0"
                     >
-                        <h1 className="min-w-full tracking-[0.2em] px-2 lg:px-28 text-2xl leading-8 font-normal text-center text-white opacity-0">
+                        <h1 className="min-w-full tracking-[0.2em] px-2 lg:px-28 text-2xl leading-8 font-normal text-center text-white ">
                             Experience Perth's premier dance school, offering
                             diverse styles, a vibrant community, professional
                             event shows, and costume hire services.
