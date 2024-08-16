@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { Head, Link } from "@inertiajs/react";
@@ -161,7 +160,10 @@ export default function Welcome({ auth }) {
             <Layout user={auth.user}>
                 {/* HERO */}
                 <div className="flex flex-col justify-around bg-[url('/background.webp')] bg-cover bg-center h-screen w-full lg:bg-center">
-                    <div id="logo-text" className="w-full flex justify-end">
+                    <div
+                        id="logo-text"
+                        className="w-full flex justify-end opacity-0"
+                    >
                         <h1 className=" max-w-md md:max-w-lg  tracking-widest text-6xl sm:text-[12vw] lg:text-[10vw] xl:text-[8.5vw]     text-white font-bold text-right pb-20 mt-16 mx-2 lg:mr-10 ">
                             dance <span className="text-db-pink">bloc</span> Bra
                             <span className=" text-green-600">z</span>
@@ -172,7 +174,7 @@ export default function Welcome({ auth }) {
                         id="heading0"
                         className=" w-full bg-gradient-to-b h-fit from-db-pink/70 from-30% to-db-pink/90 to-50% py-1  shadow-md shadow-db-pink/30 mb-12"
                     >
-                        <h1 className="min-w-full tracking-[0.2em] px-2 lg:px-28 text-2xl leading-8 font-normal text-center text-white">
+                        <h1 className="min-w-full tracking-[0.2em] px-2 lg:px-28 text-2xl leading-8 font-normal text-center text-white opacity-0">
                             Experience Perth's premier dance school, offering
                             diverse styles, a vibrant community, professional
                             event shows, and costume hire services.
