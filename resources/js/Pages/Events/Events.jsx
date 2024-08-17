@@ -70,7 +70,7 @@ export default function Events({ auth }) {
                 <title>Brazilian Samba Carnival Performances in Perth</title>
                 <meta
                     name="description"
-                    content="Unleash the vibrant energy of Brazil with our stunning samba carnival performances. Perfect for corporate events, private parties, or festivals, our talented dancers and musicians will create an unforgettable experience. Book our showstopping entertainment today!"
+                    content="Unleash the vibrant energy of Brazil in Perth with our stunning samba carnival performances. Perfect for corporate events, private parties, or festivals, our talented dancers and musicians will create an unforgettable experience. Book our showstopping entertainment today!"
                 />
             </Head>
             <div className="grid grid-rows-3 bg-[url('/events1.webp')] bg-cover bg-center h-screen w-full lg:bg-center">
@@ -108,7 +108,7 @@ export default function Events({ auth }) {
             <div className="flex bg-db-pink w-full justify-center  shadow-md mb-10  px-6 ">
                 <div id="top" className="text-white px-4 max-w-4xl  my-12">
                     <h1 className="text-3xl font-bold mb-5">
-                        Breathtaking Brazilian Samba Carnival Shows
+                        Breathtaking Brazilian Samba Carnival Shows in Perth
                     </h1>
                     <div className="text-justify text-xl font-medium flex flex-col gap-5 ">
                         <p>
