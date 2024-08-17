@@ -1,15 +1,8 @@
-import { useState } from "react";
 import { Head } from "@inertiajs/react";
 import Layout from "@/Layouts/Layout";
-import ClassCard from "@/Components/ClassCard";
 import TermCard from "@/Components/TermCard";
-import SelectInput from "@/Components/SelectInput";
-import InputLabel from "@/Components/InputLabel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faArrowDownLong,
-    faArrowRight,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowDownLong } from "@fortawesome/free-solid-svg-icons";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { TextPlugin, ScrollTrigger } from "gsap/all";
@@ -37,6 +30,7 @@ export default function Classes({ auth, classes, terms }) {
             },
             ease: "back.in",
         });
+
         gsap.to("#top-header2", {
             duration: 1.2,
             delay: 1,
@@ -54,11 +48,13 @@ export default function Classes({ auth, classes, terms }) {
                 toggleActions: "play none restart reverse",
             },
             text: {
-                value: "Courses",
+                value: "Terms",
+                rtl: true,
             },
-            duration: 2,
-            ease: "back.out",
+            duration: 1,
+            ease: "back.inOut",
         });
+
         gsap.to("#header-classes", {
             scrollTrigger: {
                 id: "header-classes",
@@ -70,8 +66,8 @@ export default function Classes({ auth, classes, terms }) {
                 value: "Classes",
                 // speed: 1.5,
             },
-            duration: 2,
-            ease: "back.out",
+            duration: 1,
+            ease: "back.inOut",
         });
     });
 
@@ -122,20 +118,28 @@ export default function Classes({ auth, classes, terms }) {
     };
     return (
         <Layout user={auth.user}>
-            <Head title="Classes" />
+            <Head>
+                <title>
+                    Learn Samba in Perth | Fun and Exciting Dance Classes
+                </title>
+                <meta
+                    name="description"
+                    content="Discover the passion of Brazilian Samba with our expert instructors in Perth. Whether you're a beginner or advanced dancer, we offer fun and energetic classes and workshops to suit all levels. Boost your fitness while learning this exciting dance style. Book your first lessons today!"
+                />
+            </Head>
 
-            <div className="grid grid-rows-3 gri-cols-3 bg-[url('/classes1.webp')] bg-cover bg-top mb-3  h-screen w-full lg:bg-top">
+            <div className="grid grid-rows-3 gri-cols-3 bg-[url('/classes1.webp')] bg-cover bg-top h-screen w-full lg:bg-top">
                 <div className="row-start 1 col-span-3 "></div>
                 <div
                     id="buttons"
                     className=" row-start-2 col-start-3 col-span-1 flex flex-col justify-center items-end mx-7 gap-4"
                 >
-                    <button onClick={() => handleClick("header-terms", 80)}>
+                    <button onClick={() => handleClick("terms", 100)}>
                         <div className="flex gap-3 items-center">
                             <div className="text-white bg-db-pink text-xl max-w-40 sm:max-w-fit p-2 rounded sm:text-3xl">
                                 {nextCourse ? (
                                     <>
-                                        next course starts:{" "}
+                                        next term starts:{" "}
                                         {formatDate(nextCourse.start_date)}
                                     </>
                                 ) : (
@@ -153,7 +157,7 @@ export default function Classes({ auth, classes, terms }) {
                             </div>
                         </div>
                     </button>
-                    <button onClick={() => handleClick("header-classes", 80)}>
+                    <button onClick={() => handleClick("classes", 100)}>
                         <div className="flex gap-3 items-center">
                             <div className="text-white bg-db-pink text-xl max-w-40 p-2  rounded sm:text-3xl sm:max-w-fit">
                                 next class:{" "}
@@ -184,78 +188,100 @@ export default function Classes({ auth, classes, terms }) {
                     ></div>
                 </div>
             </div>
-            <div className=" flex bg-db-pink  w-full justify-center min-h-[80px] md:h-[100px] shadow-md mb-10 ">
-                <div
-                    id="header-terms"
-                    className="lg:min-w-[700px] sm:min-w-[500px] min-w-[320px] rounded-xl text-white font-thin tracking-widest text-7xl md:text-8xl   "
-                ></div>
-            </div>
 
             {/* <div className=" lg:min-w-[700px] sm:min-w-[500px] min-w-full flex flex-wrap gap-3 mt-8 px-5">
                 <button
-                    onClick={() => setShowFilter(!showFilter)}
-                    className="self-start max-w-fit bg-db-pink text-white font-normal border border-white/70 tracking-wider px-4 py-2 rounded-xl"
+                onClick={() => setShowFilter(!showFilter)}
+                className="self-start max-w-fit bg-db-pink text-white font-normal border border-white/70 tracking-wider px-4 py-2 rounded-xl"
                 >
-                    {showFilter ? "hide filters" : "show filters"}
+                {showFilter ? "hide filters" : "show filters"}
                 </button>
                 {style != "" && (
                     <div className="bg-white/95 font-normal border tracking-wider flex items-center p-2 rounded h-fit">
-                        <button onClick={() => setStyle("")}>
-                            <span className="mr-2 text-slate-500">{style}</span>
-                            <FontAwesomeIcon
-                                icon={faX}
-                                size="xs"
-                                style={{ color: "#00FFA0" }}
-                            />
-                        </button>
+                    <button onClick={() => setStyle("")}>
+                    <span className="mr-2 text-slate-500">{style}</span>
+                    <FontAwesomeIcon
+                    icon={faX}
+                    size="xs"
+                    style={{ color: "#00FFA0" }}
+                    />
+                    </button>
                     </div>
-                )}
-                {level != "" && (
-                    <div className="bg-white/95 font-normal border tracking-wider flex items-center p-2 rounded h-fit">
+                    )}
+                    {level != "" && (
+                        <div className="bg-white/95 font-normal border tracking-wider flex items-center p-2 rounded h-fit">
                         <button onClick={() => setLevel("")}>
-                            <span className="mr-2 text-slate-500">{level}</span>
-                            <FontAwesomeIcon
-                                icon={faX}
-                                size="xs"
-                                style={{ color: "#00FFA0" }}
-                            />
+                        <span className="mr-2 text-slate-500">{level}</span>
+                        <FontAwesomeIcon
+                        icon={faX}
+                        size="xs"
+                        style={{ color: "#00FFA0" }}
+                        />
                         </button>
-                    </div>
-                )}
-            </div>
-            {showFilter && (
-                <div className="flex flex-wrap justify-between gap-3 py-8 px-12 rounded-3xl sm:top-20  lg:sm:min-w-[700px] sm:min-w-[500px] min-w-full ">
-                    <div className="flex flex-col max-w-fit gap-2">
-                        <InputLabel className=" text-white font-normal tracking-wider  ">
+                        </div>
+                        )}
+                        </div>
+                        {showFilter && (
+                            <div className="flex flex-wrap justify-between gap-3 py-8 px-12 rounded-3xl sm:top-20  lg:sm:min-w-[700px] sm:min-w-[500px] min-w-full ">
+                            <div className="flex flex-col max-w-fit gap-2">
+                            <InputLabel className=" text-white font-normal tracking-wider  ">
                             Style
-                        </InputLabel>
-                        <SelectInput
+                            </InputLabel>
+                            <SelectInput
                             options={["", "Samba"]}
                             value={style}
                             onChange={(e) => setStyle(e.target.value)}
                             className="bg-db-pink text-white font-medium border border-white/70 tracking-wider"
-                        />
-                    </div>
+                            />
+                            </div>
                     <div className="flex flex-col max-w-fit  gap-2">
-                        <InputLabel className="text-white font-normal tracking-wider">
-                            Level
-                        </InputLabel>
-                        <SelectInput
-                            options={[
-                                "",
-                                "Open",
-                                "Beginner",
-                                "Intermediate",
-                                "Advanced",
-                            ]}
-                            value={level}
-                            onChange={(e) => setLevel(e.target.value)}
-                            className="bg-db-pink text-white font-medium border border-white/70 tracking-wider"
+                    <InputLabel className="text-white font-normal tracking-wider">
+                    Level
+                    </InputLabel>
+                    <SelectInput
+                    options={[
+                        "",
+                        "Open",
+                        "Beginner",
+                        "Intermediate",
+                        "Advanced",
+                        ]}
+                        value={level}
+                        onChange={(e) => setLevel(e.target.value)}
+                        className="bg-db-pink text-white font-medium border border-white/70 tracking-wider"
                         />
+                        </div>
+                        </div>
+                        )} */}
+            <div className="flex justify-center bg-db-pink w-full shadow-md mb-10">
+                <div id="terms" className="text-white px-10 max-w-5xl my-12">
+                    <h1 className="text-3xl font-bold mb-5">
+                        Samba Dance Terms in Perth
+                    </h1>
+                    <div className="text-justify text-xl font-medium flex flex-col gap-5 mb-5">
+                        <p>
+                            Ignite your passion for Brazilian dance with our
+                            structured Samba courses in Perth.
+                        </p>
+                        <p>
+                            Learn the foundations and intricacies of Samba from
+                            our expert instructors.
+                        </p>
+                        <p>
+                            Our comprehensive curriculum is designed to guide
+                            you from beginner to advanced, ensuring you master
+                            the rhythmic and energetic moves of this captivating
+                            dance form.
+                        </p>
                     </div>
                 </div>
-            )} */}
-
+            </div>
+            <div className="flex justify-end max-w-5xl min-h-[80px] md:h-[100px]">
+                <div
+                    id="header-terms"
+                    className="rounded-xl text-white font-thin tracking-widest text-7xl  md:text-8xl "
+                ></div>
+            </div>
             <div className="flex flex-wrap max-w-5xl justify-center gap-8 py-8 px-4 mb-[400px] ">
                 {groupedData.map((term) => (
                     <div key={term.id}>
@@ -264,13 +290,36 @@ export default function Classes({ auth, classes, terms }) {
                 ))}
             </div>
 
-            <div className=" flex bg-db-pink  w-full justify-center min-h-[80px] md:h-[100px] shadow-md mb-10 ">
+            <div className="flex bg-db-pink w-full justify-center shadow-md mb-10  px-6 ">
+                <div id="classes" className="text-white px-4 max-w-4xl  my-12">
+                    <h1 className="text-3xl font-bold mb-5">
+                        Samba Dance Classes in Perth
+                    </h1>
+                    <div className="text-justify text-xl font-medium flex flex-col gap-5 ">
+                        <p>
+                            Discover the joy of Samba with our fun and flexible
+                            casual and drop-in classes in Perth.
+                        </p>
+                        <p>
+                            Perfect for those seeking a spontaneous workout or
+                            wanting to commit to structured training, our
+                            classes offer a vibrant atmosphere to learn and
+                            practice Samba.
+                        </p>
+                        <p>
+                            Immerse yourself in the rhythm of Brazilian dance
+                            and experience the ultimate fitness boost.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div className="flex justify-end max-w-5xl min-h-[80px] md:h-[100px]">
                 <div
                     id="header-classes"
-                    className="lg:min-w-[700px] sm:min-w-[500px] min-w-[320px] rounded-xl text-white font-thin tracking-widest text-7xl md:text-8xl   "
+                    className="rounded-xl text-white font-thin tracking-widest text-7xl  md:text-8xl "
                 ></div>
             </div>
-            <div className="px-4 w-full max-w-5xl mb-[1000px]">
+            <div className="w-full max-w-5xl mb-[2000px] px-6 py-8">
                 <CalendarComponent classesData={classes} />
             </div>
         </Layout>

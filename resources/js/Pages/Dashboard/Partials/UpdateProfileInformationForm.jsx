@@ -76,7 +76,6 @@ export default function UpdateProfileInformation({
                         value={data.phone}
                         onChange={(e) => setData("phone", e.target.value)}
                         required
-                        isFocused
                         placeholder="Phone"
                         autoComplete="phone"
                     />

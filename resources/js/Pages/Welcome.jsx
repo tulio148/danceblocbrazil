@@ -172,7 +172,7 @@ export default function Welcome({ auth }) {
                     </div>
                     <div
                         id="heading0"
-                        className=" w-full bg-gradient-to-b h-fit from-db-pink/70 from-30% to-db-pink/90 to-50% py-1  shadow-md shadow-db-pink/30 mb-12 opacity-0 skew-x-[-16deg]"
+                        className=" w-full bg-gradient-to-b h-fit from-db-pink/90 from-30% to-db-pink/90 to-50% py-1  shadow-md shadow-db-pink/30 mb-12 opacity-0 skew-x-[-8deg]"
                     >
                         <h1 className="min-w-full tracking-[0.2em] px-2 lg:px-28 text-2xl leading-8 font-normal text-center text-white">
                             Experience Perth's premier dance school, offering
@@ -288,7 +288,7 @@ export default function Welcome({ auth }) {
                         id="heading-text-1"
                         className=" self-start mx-7 bg-white rounded-sm h-24 sm:h-fit  pr-[1px] text-db-pink/90 font-extrabold text-5xl md:text-7xl sm:mb-1"
                     ></div>
-                    <div className=" max-w-3xl m-4 px-4 py-14 sm:p-8 border border-white/50 bg-gradient-to-b from-db-pink from-95% shadow-lg shadow-white/40  rounded-xl">
+                    <div className=" max-w-3xl m-4 px-4 py-14 sm:p-8 border border-white/50 bg-gradient-to-b from-db-pink from-95% shadow-lg shadow-white/40 rounded-xl">
                         <p className="text-white font-normal text-xl sm:text-2xl tracking-widest leading-8 md:text-justify ">
                             At Dance Bloc Brazil, we believe dance is more than
                             just physical activity. It&#39;s a celebration of

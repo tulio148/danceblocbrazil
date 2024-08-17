@@ -66,12 +66,18 @@ export default function Events({ auth }) {
     };
     return (
         <Layout user={auth.user}>
-            <Head title="Events" />
-            <div className="grid grid-rows-3 bg-[url('/events1.webp')] bg-cover bg-center mb-3  h-screen w-full lg:bg-center">
+            <Head>
+                <title>Brazilian Samba Carnival Performances in Perth</title>
+                <meta
+                    name="description"
+                    content="Unleash the vibrant energy of Brazil with our stunning samba carnival performances. Perfect for corporate events, private parties, or festivals, our talented dancers and musicians will create an unforgettable experience. Book our showstopping entertainment today!"
+                />
+            </Head>
+            <div className="grid grid-rows-3 bg-[url('/events1.webp')] bg-cover bg-center h-screen w-full lg:bg-center">
                 <button
                     id="button"
                     className="row-start-2 justify-self-start md:justify-self-center mx-7 "
-                    onClick={() => handleClick("form", 80)}
+                    onClick={() => handleClick("top", 80)}
                 >
                     <div className="flex gap-3 items-center animate-bounce">
                         <div className="text-white font-light bg-db-pink text-4xl max-w-40 sm:max-w-fit p-2 rounded sm:text-6xl">
@@ -99,12 +105,37 @@ export default function Events({ auth }) {
                     ></div>
                 </div>
             </div>
-
-            <div id="form" className="mt-56 max-w-2xl w-full">
+            <div className="flex bg-db-pink w-full justify-center  shadow-md mb-10  px-6 ">
+                <div id="top" className="text-white px-4 max-w-4xl  my-12">
+                    <h1 className="text-3xl font-bold mb-5">
+                        Breathtaking Brazilian Samba Carnival Shows
+                    </h1>
+                    <div className="text-justify text-xl font-medium flex flex-col gap-5 ">
+                        <p>
+                            Make a lasting impression with our electrifying
+                            Brazilian samba carnival performances. Our talented
+                            dancers and musicians bring the vibrant spirit of
+                            Brazil to life, creating an unforgettable spectacle
+                            for your guests. Whether you're planning a corporate
+                            event, a private party, or a festival, our
+                            customizable shows will exceed your expectations.
+                        </p>
+                        <p>
+                            From dazzling costumes to infectious rhythms, our
+                            samba carnival performances are guaranteed to
+                            captivate your audience. Our experienced team will
+                            work closely with you to create a tailored show that
+                            perfectly complements your event theme. Let us add a
+                            touch of Brazilian magic to your special occasion.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="form" className="max-w-4xl w-full mb-[1000px]">
                 <div className="w-full  mt-14">
                     <h1
                         id="header"
-                        className="tracking-widest text-4xl sm:text-6xl h-[48px] text-white/95  font-medium  my-4 px-4 text-right"
+                        className="tracking-widest text-5xl sm:text-6xl h-[48px] text-white/95  font-medium  my-4 px-4 text-right"
                     ></h1>
                 </div>
                 <EventEnquire />

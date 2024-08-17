@@ -54,7 +54,7 @@ export default function EventEnquire({}) {
                     <div className="sm:col-span-2">
                         <InputLabel
                             value="Name"
-                            className=" font-medium text-xl mb-3 tracking-wider"
+                            className="text-white font-medium text-xl mb-3 tracking-wider"
                         />
                         <TextInput
                             id="name"
@@ -69,7 +69,7 @@ export default function EventEnquire({}) {
                     <div className="sm:col-span-2">
                         <InputLabel
                             value="Email"
-                            className=" font-medium text-xl mb-3 tracking-wider"
+                            className="text-white font-medium text-xl mb-3 tracking-wider"
                         />
                         <TextInput
                             id="email"
@@ -86,7 +86,7 @@ export default function EventEnquire({}) {
                     <div className="sm:col-span-2">
                         <InputLabel
                             value="Phone"
-                            className=" font-medium text-xl mb-3 tracking-wider"
+                            className="text-white font-medium text-xl mb-3 tracking-wider"
                         />
                         <TextInput
                             id="phone"
@@ -102,7 +102,7 @@ export default function EventEnquire({}) {
                     <div className="sm:col-span-1">
                         <InputLabel
                             value="Date"
-                            className=" font-medium text-xl mb-3 tracking-wider "
+                            className="text-white font-medium text-xl mb-3 tracking-wider "
                         />
                         <TextInput
                             id="date"
@@ -117,7 +117,7 @@ export default function EventEnquire({}) {
                     <div className="sm:col-span-1">
                         <InputLabel
                             value="Time"
-                            className=" font-medium text-xl mb-3 tracking-wider"
+                            className="text-white font-medium text-xl mb-3 tracking-wider"
                         />
                         <TextInput
                             id="time"
@@ -132,7 +132,7 @@ export default function EventEnquire({}) {
                     <div className="sm:col-span-2">
                         <InputLabel
                             value="Event Type"
-                            className=" font-medium text-xl mb-3 tracking-wider"
+                            className="text-white font-medium text-xl mb-3 tracking-wider"
                         />
                         <SelectInput
                             options={[
@@ -157,7 +157,7 @@ export default function EventEnquire({}) {
                     <div className="sm:col-span-2">
                         <InputLabel
                             value="No. of Guests"
-                            className=" font-medium text-xl mb-3 tracking-wider"
+                            className="text-white font-medium text-xl mb-3 tracking-wider"
                         />
                         <TextInput
                             id="guests"
@@ -173,7 +173,7 @@ export default function EventEnquire({}) {
                     <div className="sm:col-span-2">
                         <InputLabel
                             value="Location"
-                            className=" font-medium text-xl mb-3 tracking-wider"
+                            className="text-white font-medium text-xl mb-3 tracking-wider"
                         />
                         <TextInput
                             id="location"
@@ -190,7 +190,7 @@ export default function EventEnquire({}) {
                     <div className="sm:col-span-2">
                         <InputLabel
                             value="Other information you’d like us to know"
-                            className=" font-medium text-xl mb-3 tracking-wider"
+                            className="text-white font-medium text-xl mb-3 tracking-wider"
                         />
                         <Textarea
                             id="otherInfo"
@@ -206,7 +206,7 @@ export default function EventEnquire({}) {
                     <div className="sm:col-span-2">
                         <InputLabel
                             value="Questions you want to ask us"
-                            className=" font-medium text-xl mb-3 tracking-wider"
+                            className="text-white font-medium text-xl mb-3 tracking-wider"
                         />
                         <Textarea
                             id="questions"

@@ -51,7 +51,9 @@ export default function Footer() {
                     <p className="mt-8  font-extralight tracking-widest">
                         &copy; 2024 Dance Bloc Brazil
                     </p>
-                    <Link href="/privacy">Privacy Policy</Link>
+                    <Link className="font-extralight" href="/privacy">
+                        Privacy Policy
+                    </Link>
                 </div>
             </div>
         </footer>

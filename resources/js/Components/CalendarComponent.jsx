@@ -123,7 +123,7 @@ export default function CalendarComponent({ classesData }) {
     const showPreviousWeekButton = currentWeekStart >= today;
 
     return (
-        <div className="w-full max-w-5xl border-b bg-gradient-to-b from-white from-90% px-6 pt-10 pb-6 rounded-3xl shadow ">
+        <div className="w-full max-w-5xl border-b bg-gradient-to-b from-white from-90% px-6 pt-10 pb-6 rounded-3xl shadow  ">
             <div className="grid grid-cols-3 w-full mb-4">
                 {showPreviousWeekButton && (
                     <button
