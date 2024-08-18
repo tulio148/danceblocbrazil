@@ -15,30 +15,40 @@ export default function Classes({ auth, classes, terms }) {
     gsap.registerPlugin(ScrollTrigger);
 
     useGSAP(() => {
-        gsap.from("#buttons", {
+        gsap.to("#buttons", {
             duration: 3,
-            delay: 0.3,
-            autoAlpha: 0,
-            ease: "power4.inOut",
-        });
-
-        gsap.to("#top-header1", {
-            duration: 1.2,
-            // delay: 1,
-            text: {
-                value: "unlock the",
-            },
-            ease: "back.in",
-        });
-
-        gsap.to("#top-header2", {
-            duration: 1.2,
             delay: 1,
-            text: {
-                value: "samba groove",
-            },
+            autoAlpha: 1,
             ease: "power4.out",
         });
+
+        gsap.from("#top-header1", {
+            duration: 1.5,
+            width: "0%",
+            delay: 0.5,
+            ease: "power4.out",
+        });
+        gsap.to("#top-header1", {
+            duration: 2,
+            delay: 0.5,
+            autoAlpha: 1,
+            ease: "power4.out",
+        });
+        gsap.to("#top-header2", {
+            duration: 2,
+            delay: 0.5,
+            autoAlpha: 1,
+            ease: "power4.out",
+        });
+
+        // gsap.to("#top-header2", {
+        //     duration: 1.2,
+        //     delay: 1,
+        //     text: {
+        //         value: "samba groove",
+        //     },
+        //     ease: "power4.out",
+        // });
 
         gsap.to("#header-terms", {
             scrollTrigger: {
@@ -132,7 +142,7 @@ export default function Classes({ auth, classes, terms }) {
                 <div className="row-start 1 col-span-3 "></div>
                 <div
                     id="buttons"
-                    className=" row-start-2 col-start-3 col-span-1 flex flex-col justify-center items-end mx-7 gap-4"
+                    className=" row-start-2 col-start-3 col-span-1 flex flex-col justify-center items-end mx-7 gap-4 opacity-0"
                 >
                     <button onClick={() => handleClick("terms", 100)}>
                         <div className="flex gap-3 items-center">
@@ -180,12 +190,16 @@ export default function Classes({ auth, classes, terms }) {
                 <div className="row-start-3 col-span-3 self-end max-w-2xl w-fit">
                     <div
                         id="top-header1"
-                        className="mx-7 text-white font-extralight h-14 sm:h-20 bg-db-pink rounded   text-5xl md:text-7xl text-right "
-                    ></div>
+                        className="mx-7 text-white font-extralight h-14 sm:h-20 bg-db-pink rounded   text-5xl md:text-7xl text-right opacity-0"
+                    >
+                        unlock
+                    </div>
                     <div
                         id="top-header2"
-                        className="mx-7 text-white font-thin h-14 sm:h-20  text-5xl md:text-7xl  mb-20"
-                    ></div>
+                        className="mx-7 text-white font-thin h-14 sm:h-20  text-5xl md:text-7xl  mb-20 opacity-0"
+                    >
+                        the samba groove
+                    </div>
                 </div>
             </div>
 

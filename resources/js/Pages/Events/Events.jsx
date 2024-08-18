@@ -12,26 +12,30 @@ export default function Events({ auth }) {
     gsap.registerPlugin(ScrollTrigger);
     gsap.registerPlugin(TextPlugin);
     useGSAP(() => {
-        gsap.to("#top-header1", {
-            duration: 1.2,
-            text: {
-                value: "ignite",
-            },
-            ease: "back.in",
-        });
-        gsap.to("#top-header2", {
-            duration: 1.2,
-            delay: 1,
-            text: {
-                value: "your event",
-            },
+        gsap.from("#top-header1", {
+            duration: 1.5,
+            width: "0%",
+            delay: 0.5,
             ease: "power4.out",
         });
-        gsap.from("#button", {
-            duration: 2,
+        gsap.to("#top-header1", {
+            duration: 1,
+            delay: 0.5,
+            autoAlpha: 1,
+            ease: "power4.out",
+        });
+        gsap.to("#top-header2", {
+            duration: 1,
+            delay: 0.5,
+            autoAlpha: 1,
+            ease: "power4.out",
+        });
+
+        gsap.to("#button", {
+            duration: 3,
             delay: 1,
-            autoAlpha: 0,
-            ease: "power4.inOut",
+            autoAlpha: 1,
+            ease: "power4.out",
         });
         gsap.to("#header", {
             scrollTrigger: {
@@ -76,7 +80,7 @@ export default function Events({ auth }) {
             <div className="grid grid-rows-3 bg-[url('/events1.webp')] bg-cover bg-center h-screen w-full lg:bg-center">
                 <button
                     id="button"
-                    className="row-start-2 justify-self-start md:justify-self-center mx-7 "
+                    className="row-start-2 justify-self-start md:justify-self-center mx-7 opacity-0"
                     onClick={() => handleClick("top", 80)}
                 >
                     <div className="flex gap-3 items-center animate-bounce">
@@ -97,12 +101,16 @@ export default function Events({ auth }) {
                 <div className="row-start-3 self-end max-w-2xl w-fit">
                     <div
                         id="top-header1"
-                        className="mx-7 text-white font-extralight h-14 sm:h-16 bg-db-pink text-6xl md:text-7xl text-right"
-                    ></div>
+                        className="mx-7 text-white font-extralight h-14 sm:h-16 bg-db-pink text-6xl md:text-7xl text-right opacity-0"
+                    >
+                        ignite
+                    </div>
                     <div
                         id="top-header2"
-                        className="mx-7 text-white font-thin h-14 sm:h-20  text-6xl md:text-7xl  mb-20 "
-                    ></div>
+                        className="mx-7 text-white font-thin h-14 sm:h-20  text-6xl md:text-7xl  mb-20 opacity-0"
+                    >
+                        your event
+                    </div>
                 </div>
             </div>
             <div className="flex bg-db-pink w-full justify-center  shadow-md mb-10  px-6 ">
