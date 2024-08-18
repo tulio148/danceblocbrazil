@@ -75,7 +75,7 @@
 </head>
 
 <body>
-    <img src="https://www.danceblocbrazil.com/faviconpng-removebg-preview.png" alt="Dance Bloc Brazil Logo"
+    <img src="https://www.danceblocbrazil.com/faviconpng-removebg-preview.webp" alt="Dance Bloc Brazil Logo"
         class="center-img">
     <div class="header">
         <h1>Dance Bloc Brazil</h1>

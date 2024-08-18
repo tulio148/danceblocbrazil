@@ -12,6 +12,7 @@ export default function Welcome({ auth }) {
 
     useGSAP(() => {
         gsap.to("#logo-text", {
+            delay: 0.75,
             opacity: 1,
             duration: 2,
             ease: "power2.inOut",
@@ -28,6 +29,7 @@ export default function Welcome({ auth }) {
             scale: 0.2,
             duration: 4,
         });
+
         gsap.from("#dancer1", {
             scrollTrigger: {
                 id: "dancer1",
@@ -119,7 +121,7 @@ export default function Welcome({ auth }) {
             autoAlpha: 1,
             skewX: 0,
             duration: 6,
-            delay: 1,
+            delay: 1.5,
             ease: "power4.out",
         });
         gsap.to("#heading-text-1", {
@@ -189,25 +191,24 @@ export default function Welcome({ auth }) {
                     className="w-[350px] mb-[2000px]"
                 />
                 {/* DANCER WITH TEXT */}
-                <div
-                    id="dancer1"
-                    className=" flex flex-col justify-around bg-[url('/dancer.webp')] bg-cover bg-center xl:bg-contain h-screen w-full   mb-[2000px]"
-                >
+                <div className="relative h-screen w-full">
+                    <img
+                        id="dancer1"
+                        src="/dancer.webp"
+                        alt="Dancer"
+                        className="absolute top-0 left-0 w-full h-full object-cover"
+                    />
                     <div
                         id="heading1"
-                        className=" w-full bg-gradient-to-l from-db-pink/90 from-30% py-1 my-32 shadow-md shadow-db-pink/30"
+                        className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-end"
                     >
-                        <h1 className="min-w-full tracking-widest px-4 lg:px-24 text-5xl lg:text-5xl text-white  font-extralight lg:font-thin text-right">
-                            unleash your
-                        </h1>
+                        {/* Your content here */}
                     </div>
                     <div
                         id="heading2"
-                        className=" w-full bg-gradient-to-r from-db-pink/90 from-30% py-1  my-32 shadow-md shadow-db-pink/30"
+                        className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-start"
                     >
-                        <h1 className="min-w-full tracking-widest px-4 lg:px-24  text-5xl lg:text-5xl text-white font-extralight lg:font-thin text-left">
-                            inner brazilian
-                        </h1>
+                        {/* Your content here */}
                     </div>
                 </div>
                 <div

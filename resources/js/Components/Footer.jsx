@@ -45,8 +45,9 @@ export default function Footer() {
                     </div>
                     <img
                         className=" w-48 mt-28"
-                        src="/faviconpng-removebg-preview.png"
+                        src="/faviconpng-removebg-preview.webp"
                         alt=""
+                        loading="lazy"
                     />
                     <p className="mt-8  font-extralight tracking-widest">
                         &copy; 2024 Dance Bloc Brazil
