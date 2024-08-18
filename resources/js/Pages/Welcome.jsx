@@ -20,7 +20,7 @@ export default function Welcome({ auth }) {
             scrollTrigger: {
                 trigger: "#logo-img",
                 start: "center center",
-                end: "+=6000px",
+                end: "+=3000px",
                 pin: "#logo-img",
                 toggleActions: "play none none none",
             },
@@ -34,13 +34,13 @@ export default function Welcome({ auth }) {
                 id: "dancer1",
                 trigger: "#dancer1",
                 start: "top top",
-                end: "+=5000px",
+                end: "+=4000px",
                 pin: "#dancer1",
                 toggleActions: "play  none none none",
             },
             autoAlpha: 0,
             // opacity: 0,
-            duration: 1,
+            duration: 2,
             ease: "power4.in",
         });
 
@@ -66,14 +66,14 @@ export default function Welcome({ auth }) {
                 id: "events",
                 trigger: "#events",
                 start: "top top",
-                end: "+=5000px",
+                end: "+=4000px",
                 pin: "#events",
                 toggleActions: "play none none none",
                 // markers: true,
             },
             autoAlpha: 0,
             // opacity: 0,
-            duration: 1,
+            duration: 2,
             ease: "power4.in",
         });
 
@@ -82,7 +82,7 @@ export default function Welcome({ auth }) {
                 id: "costumes",
                 trigger: "#costumes",
                 start: "top top",
-                end: "+=5000px",
+                end: "+=4000px",
                 pin: "#costumes",
                 toggleActions: "play none none none",
                 // markers: true,
@@ -93,40 +93,40 @@ export default function Welcome({ auth }) {
             ease: "power4.in",
         });
 
-        gsap.to("#text-1", {
-            scrollTrigger: {
-                id: "text-1",
-                trigger: "#text-1",
-                start: "top top",
-                end: "+=3000px",
-                toggleActions: "play none restart reverse",
-                pin: "#text-1",
-                // markers: true,
-            },
-        });
+        // gsap.to("#text-1", {
+        //     scrollTrigger: {
+        //         id: "text-1",
+        //         trigger: "#text-1",
+        //         start: "top top",
+        //         end: "+=3000px",
+        //         toggleActions: "play none restart reverse",
+        //         pin: "#text-1",
+        //         // markers: true,
+        //     },
+        // });
 
-        gsap.to("#text-2", {
-            scrollTrigger: {
-                id: "text-2",
-                trigger: "#text-2",
-                start: "top top",
-                end: "+=3000px",
-                toggleActions: "play none restart reverse",
-                pin: "#text-2",
-                // markers: true,
-            },
-        });
-        gsap.to("#text-3", {
-            scrollTrigger: {
-                id: "text-3",
-                trigger: "#text-3",
-                start: "top top",
-                end: "+=3000px",
-                toggleActions: "play none restart reverse",
-                pin: "#text-3",
-                // markers: true,
-            },
-        });
+        // gsap.to("#text-2", {
+        //     scrollTrigger: {
+        //         id: "text-2",
+        //         trigger: "#text-2",
+        //         start: "top top",
+        //         end: "+=3000px",
+        //         toggleActions: "play none restart reverse",
+        //         pin: "#text-2",
+        //         // markers: true,
+        //     },
+        // });
+        // gsap.to("#text-3", {
+        //     scrollTrigger: {
+        //         id: "text-3",
+        //         trigger: "#text-3",
+        //         start: "top top",
+        //         end: "+=3000px",
+        //         toggleActions: "play none restart reverse",
+        //         pin: "#text-3",
+        //         // markers: true,
+        //     },
+        // });
         gsap.to("#heading0", {
             autoAlpha: 1,
             skewX: 0,
@@ -218,11 +218,11 @@ export default function Welcome({ auth }) {
                     src="background.webp"
                     loading="lazy"
                     alt="Three Brazilian Carnival dancers posing in elaborate samba costumes with feathers and sequins"
-                    className="h-screen w-full object-cover  mb-[1000px] overflow-hidden"
+                    className="h-screen w-full object-cover  mb-[3000px] overflow-hidden"
                 ></img>
                 <div
                     id="text-1"
-                    className="flex flex-col justify-center items-center pt-12 max-w-5xl h-screen mb-[3000px]"
+                    className="z-50 flex flex-col justify-center items-center pt-12 max-w-5xl h-screen mb-[1000px]"
                 >
                     <div
                         id="heading-text-1"
@@ -258,7 +258,7 @@ export default function Welcome({ auth }) {
                 ></img>
                 <div
                     id="text-2"
-                    className="flex flex-col justify-center items-center pt-12 max-w-5xl h-screen mb-[3000px]"
+                    className="z-50 flex flex-col justify-center items-center pt-12 max-w-5xl h-screen mb-[3000px]"
                 >
                     <div
                         id="heading-text-2"
@@ -294,7 +294,7 @@ export default function Welcome({ auth }) {
                 ></img>
                 <div
                     id="text-3"
-                    className="flex flex-col justify-center items-center pt-12 max-w-5xl h-screen mb-[3000px]"
+                    className="z-50 flex flex-col justify-center items-center pt-12 max-w-5xl h-screen mb-[3000px]"
                 >
                     <div
                         id="heading-text-3"
