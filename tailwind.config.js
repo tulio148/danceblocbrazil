@@ -13,7 +13,7 @@ export default {
     theme: {
         extend: {
             colors: {
-                "db-pink": "#FF00F7",
+                "db-pink": "#990093",
                 "db-light-pink": "#FF80FF",
                 "db-green": "#00FFA0",
                 "special-blue": "#5c749d",
