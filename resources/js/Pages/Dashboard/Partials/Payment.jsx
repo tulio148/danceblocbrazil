@@ -9,12 +9,13 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCcMastercard, faCcVisa } from "@fortawesome/free-brands-svg-icons";
 import { faCreditCard } from "@fortawesome/free-solid-svg-icons";
+import Spinner from "@/Components/Spinner";
 export default function Payment({ order, cards }) {
     const appId = import.meta.env.VITE_SQUARE_APPLICATION_ID;
     const locationId = import.meta.env.VITE_SQUARE_LOCATION_ID;
 
     const [isOpen, setIsOpen] = useState(false);
-
+    const [isLoading, setIsLoading] = useState(false);
     const [paymentStatus, setPaymentStatus] = useState(null);
     const [error, setError] = useState(null);
 
@@ -61,7 +62,7 @@ export default function Payment({ order, cards }) {
         // };
         if (token.status === "OK") {
             // console.log(token.token);
-
+            setIsLoading(true);
             const data = {
                 token: token.token,
                 id: order.id,
@@ -89,12 +90,16 @@ export default function Payment({ order, cards }) {
                 })
                 .catch((error) => {
                     console.error("Payment failed:", error);
+                })
+                .finally(() => {
+                    setIsLoading(false);
                 });
         } else {
         }
     };
 
     const handlePaymentResponseStoredCard = (id) => {
+        setIsLoading(true);
         const data = {
             token: id,
             id: order.id,
@@ -122,6 +127,9 @@ export default function Payment({ order, cards }) {
             })
             .catch((error) => {
                 console.error("Payment failed:", error);
+            })
+            .finally(() => {
+                setIsLoading(false); // Set loading back to false
             });
     };
 
@@ -135,7 +143,9 @@ export default function Payment({ order, cards }) {
             </button>
             <Modal show={isOpen} onClose={closeModal} className="max-w-2xl">
                 <div className="p-6 h-full">
-                    {paymentStatus === "success" ? (
+                    {isLoading ? (
+                        <Spinner />
+                    ) : paymentStatus === "success" ? (
                         <p>Payment Successful!</p>
                     ) : paymentStatus === "error" ? (
                         <p>
