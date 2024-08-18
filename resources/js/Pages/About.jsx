@@ -13,20 +13,22 @@ export default function About({ auth }) {
     gsap.registerPlugin(ScrollTrigger);
 
     useGSAP(() => {
+        gsap.from("#top-header1", {
+            duration: 1.5,
+            width: "0%",
+            delay: 0.5,
+            ease: "power4.out",
+        });
         gsap.to("#top-header1", {
-            duration: 1.2,
-            // delay: 1,
-            text: {
-                value: "samba",
-            },
-            ease: "back.in",
+            duration: 2,
+            delay: 0.5,
+            autoAlpha: 1,
+            ease: "power4.out",
         });
         gsap.to("#top-header2", {
-            duration: 1.2,
-            delay: 1,
-            text: {
-                value: "is rhythmic love",
-            },
+            duration: 2,
+            delay: 0.5,
+            autoAlpha: 1,
             ease: "power4.out",
         });
 
@@ -128,12 +130,16 @@ export default function About({ auth }) {
                 <div className="row-start-3 self-end max-w-2xl w-fit">
                     <div
                         id="top-header1"
-                        className="mx-7 text-white  font-extralight h-14 sm:h-20 bg-db-pink text-5xl md:text-7xl text-right"
-                    ></div>
+                        className="mx-7 text-white  font-extralight h-14 sm:h-20 bg-db-pink text-5xl md:text-7xl text-right opacity-0"
+                    >
+                        love
+                    </div>
                     <div
                         id="top-header2"
-                        className="mx-7 text-white font-thin h-14 sm:h-20  text-5xl md:text-7xl  mb-20"
-                    ></div>
+                        className="mx-7 text-white font-thin h-14 sm:h-20  text-5xl md:text-7xl  mb-20 opacity-0"
+                    >
+                        is samba
+                    </div>
                 </div>
             </div>
             <div className="flex flex-col max-w-5xl gap-2 mb-[100px]  max-h-fit border-b bg-gradient-to-b from-white from-90% px-6 py-16 mx-3 rounded-3xl z-40 shadow">

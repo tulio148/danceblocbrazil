@@ -14,16 +14,16 @@ export default function About({ auth }) {
 
     useGSAP(() => {
         gsap.to("#top-header1", {
-            duration: 1.2,
-            // delay: 1,
+            duration: 1,
+            delay: 0.5,
             text: {
                 value: "Sparkle, shine, ",
             },
             ease: "back.in",
         });
         gsap.to("#top-header2", {
-            duration: 1.5,
-            delay: 1.5,
+            duration: 2,
+            delay: 2,
             text: {
                 value: "samba time.",
             },
@@ -32,7 +32,7 @@ export default function About({ auth }) {
 
         gsap.from("#button", {
             duration: 2,
-            delay: 1,
+            delay: 2,
             autoAlpha: 0,
             ease: "power4.inOut",
         });
