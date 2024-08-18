@@ -57,12 +57,8 @@ export default function ({ user, children }) {
             </Head>
             <nav
                 className={`transition duration-1000 w-full fixed top-0 left-0  z-50 bg-db-pink ${
-                    isTransparent &&
-                    (route().current("welcome") ||
-                        route().current("classes") ||
-                        route().current("mission") ||
-                        route().current("events"))
-                        ? " opacity-100 lg:opacity-0   "
+                    isTransparent
+                        ? " bg-transparent lg:opacity-0   "
                         : " opacity-100 "
                 }`}
             >

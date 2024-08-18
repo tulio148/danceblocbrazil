@@ -23,7 +23,7 @@ export default function Welcome({ auth }) {
                 end: "+=4000px",
                 pin: "#logo-img",
                 toggleActions: "play none none none",
-                markers: true,
+                // markers: true,
             },
             autoAlpha: 0,
             scale: 0.2,
@@ -38,7 +38,7 @@ export default function Welcome({ auth }) {
                 end: "+=3000px",
                 pin: "#dancer1",
                 scrub: true,
-                markers: true,
+                // markers: true,
             },
         });
 
@@ -59,23 +59,6 @@ export default function Welcome({ auth }) {
                 ease: "power4.in",
             });
 
-        // gsap.from("#danceclass", {
-        //     scrollTrigger: {
-        //         id: "danceclass",
-        //         trigger: "#danceclass",
-        //         start: "top top",
-        //         end: "+=5000px",
-        //         pin: "#danceclass",
-        //         toggleActions: "play  none none none",
-        //         // markers: true,
-        //         // preventOverlaps: true,
-        //     },
-        //     // opacity: 0,
-        //     autoAlpha: 0,
-        //     duration: 1,
-        //     ease: "power4.in",
-        // });
-
         let tlEvents = gsap.timeline({
             scrollTrigger: {
                 id: "events",
@@ -84,7 +67,7 @@ export default function Welcome({ auth }) {
                 end: "+=3000px",
                 pin: "#events",
                 scrub: true,
-                markers: true,
+                // markers: true,
             },
         });
 
@@ -113,7 +96,7 @@ export default function Welcome({ auth }) {
                 end: "+=3000px",
                 pin: "#costumes",
                 scrub: true,
-                markers: true,
+                // markers: true,
             },
         });
 
@@ -142,7 +125,7 @@ export default function Welcome({ auth }) {
                 end: "+=2500px",
                 pin: "#text-1",
                 scrub: true,
-                markers: true,
+                // markers: true,
             },
         });
 
@@ -171,7 +154,7 @@ export default function Welcome({ auth }) {
                 end: "+=2500px",
                 pin: "#text-2",
                 scrub: true,
-                markers: true,
+                // markers: true,
             },
         });
 
@@ -200,7 +183,7 @@ export default function Welcome({ auth }) {
                 end: "+=2500px",
                 pin: "#text-3",
                 scrub: true,
-                markers: true,
+                // markers: true,
             },
         });
 
@@ -296,7 +279,7 @@ export default function Welcome({ auth }) {
                         id="logo-text"
                         className="w-full flex justify-end opacity-0 "
                     >
-                        <h1 className=" max-w-md md:max-w-lg  tracking-widest text-6xl sm:text-[12vw] lg:text-[10vw] xl:text-[8.5vw]     text-white font-bold text-right pb-20 mt-16 mx-2 xl:mr-32 lg:mr-24 md:mr-10">
+                        <h1 className=" max-w-md md:max-w-lg  tracking-widest text-6xl sm:text-[12vw] lg:text-[10vw] xl:text-[8.5vw]     text-white font-bold text-right pb-20 mt-16 mx-2 xl:mr-52 lg:mr-24 md:mr-10">
                             dance bloc Brazil
                         </h1>
                     </div>
