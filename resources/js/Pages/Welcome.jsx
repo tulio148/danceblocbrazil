@@ -12,7 +12,6 @@ export default function Welcome({ auth }) {
 
   useGSAP(() => {
     gsap.to("#logo-text", {
-      delay: 0.75,
       opacity: 1,
       duration: 2,
       ease: "power2.inOut",
@@ -120,8 +119,7 @@ export default function Welcome({ auth }) {
     gsap.to("#heading0", {
       autoAlpha: 1,
       skewX: 0,
-      duration: 6,
-      delay: 1.5,
+      duration: 2,
       ease: "power4.out",
     });
     gsap.to("#heading-text-1", {
@@ -164,7 +162,7 @@ export default function Welcome({ auth }) {
         <div className="flex flex-col justify-around bg-db-pink bg-cover bg-center h-screen w-full lg:bg-center ">
           <div id="logo-text" className="w-full flex justify-end opacity-0">
             <h1 className=" max-w-md md:max-w-lg  tracking-widest text-6xl sm:text-[12vw] lg:text-[10vw] xl:text-[8.5vw]     text-white font-bold text-right pb-20 mt-16 mx-2 lg:mr-10 ">
-              dance <span className="text-db-pink">bloc</span> Bra
+              dance bloc Bra
               <span className=" text-green-600">z</span>
               <span className=" text-yellow-300">i</span>l
             </h1>
