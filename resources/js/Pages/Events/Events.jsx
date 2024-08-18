@@ -76,6 +76,10 @@ export default function Events({ auth }) {
                     name="description"
                     content="Unleash the vibrant energy of Brazil in Perth with our stunning samba carnival performances. Perfect for corporate events, private parties, or festivals, our talented dancers and musicians will create an unforgettable experience. Book our showstopping entertainment today!"
                 />
+                <meta
+                    name="keywords"
+                    content="Samba carnival performances, Brazilian Samba Perth, corporate event entertainment, private party entertainment, festival shows, Samba dancers Perth, live music and dance, Perth event entertainment"
+                />
             </Head>
             <div className="grid grid-rows-3 bg-[url('/events1.webp')] bg-cover bg-center h-screen w-full lg:bg-center">
                 <button

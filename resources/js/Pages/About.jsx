@@ -110,7 +110,21 @@ export default function About({ auth }) {
 
     return (
         <Layout user={auth.user}>
-            <Head title="About Us" />
+            <Head>
+                <title>
+                    About Us | Meet Our Samba Dance Instructors and Explore Our
+                    Mission
+                </title>
+                <meta
+                    name="description"
+                    content="Learn more about our dance school's mission, instructors, and the exciting world of Brazilian Samba. We are dedicated to bringing the joy and energy of Samba to dancers of all levels in Perth."
+                />
+                <meta
+                    name="keywords"
+                    content="About Samba dance school, Perth Samba instructors, Brazilian Samba, dance school mission, Perth dance classes, Samba dance culture"
+                />
+            </Head>
+
             <div className="grid grid-rows-3  bg-[url('/about.webp')] bg-cover bg-left mb-[200px]  h-screen w-full lg:bg-center">
                 <button
                     id="button"

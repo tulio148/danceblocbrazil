@@ -63,6 +63,10 @@ export default function About({ auth }) {
                     name="description"
                     content="Elevate your event with authentic Brazilian Samba costumes available for hire in Perth. Our vibrant carnival outfits bring the spirit of Rio to your celebrations. Perfect for performances, parties, and themed events. Explore our collection and hire the perfect costume today!"
                 />
+                <meta
+                    name="keywords"
+                    content="Brazilian Samba costumes, carnival outfits Perth, costume hire Perth, Samba carnival costumes, Rio-themed events, performance costumes, party costumes, Perth costume rentals"
+                />
             </Head>
             <div className="grid grid-rows-3  bg-[url('/costume.webp')] bg-cover  bg-center   h-screen w-full lg:bg-center ">
                 <button

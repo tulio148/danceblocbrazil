@@ -136,6 +136,10 @@ export default function Classes({ auth, classes, terms }) {
                     name="description"
                     content="Discover the passion of Brazilian Samba with our expert instructors in Perth. Whether you're a beginner or advanced dancer, we offer fun and energetic classes and workshops to suit all levels. Boost your fitness while learning this exciting dance style. Book your first lessons today!"
                 />
+                <meta
+                    name="keywords"
+                    content="Samba dance Perth, Brazilian Samba classes, dance workshops, fitness dance, beginner Samba lessons, advanced Samba dance, Perth dance school, Samba instructors"
+                />
             </Head>
 
             <div className="grid grid-rows-3 gri-cols-3 bg-[url('/classes1.webp')] bg-cover bg-top h-screen w-full lg:bg-top">

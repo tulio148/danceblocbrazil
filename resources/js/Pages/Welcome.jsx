@@ -19,30 +19,45 @@ export default function Welcome({ auth }) {
         gsap.from("#logo-img", {
             scrollTrigger: {
                 trigger: "#logo-img",
-                start: "center center",
-                end: "+=3000px",
+                start: "top center",
+                end: "+=4000px",
                 pin: "#logo-img",
                 toggleActions: "play none none none",
+                markers: true,
             },
             autoAlpha: 0,
             scale: 0.2,
             duration: 4,
         });
 
-        gsap.from("#dancer1", {
+        let tlDancer = gsap.timeline({
             scrollTrigger: {
                 id: "dancer1",
                 trigger: "#dancer1",
                 start: "top top",
-                end: "+=4000px",
+                end: "+=3000px",
                 pin: "#dancer1",
-                toggleActions: "play  none none none",
+                scrub: true,
+                markers: true,
             },
-            autoAlpha: 0,
-            // opacity: 0,
-            duration: 2,
-            ease: "power4.in",
         });
+
+        tlDancer
+            .from("#dancer1", {
+                autoAlpha: 0,
+                duration: 1,
+                ease: "power4.in",
+            })
+            .to("#dancer1", {
+                autoAlpha: 1,
+                duration: 1,
+                ease: "power4.out",
+            })
+            .to("#dancer1", {
+                autoAlpha: 0,
+                duration: 1,
+                ease: "power4.in",
+            });
 
         // gsap.from("#danceclass", {
         //     scrollTrigger: {
@@ -61,78 +76,159 @@ export default function Welcome({ auth }) {
         //     ease: "power4.in",
         // });
 
-        gsap.from("#events", {
+        let tlEvents = gsap.timeline({
             scrollTrigger: {
                 id: "events",
                 trigger: "#events",
                 start: "top top",
-                end: "+=4000px",
+                end: "+=3000px",
                 pin: "#events",
-                toggleActions: "play none none none",
-                // markers: true,
+                scrub: true,
+                markers: true,
             },
-            autoAlpha: 0,
-            // opacity: 0,
-            duration: 2,
-            ease: "power4.in",
         });
 
-        gsap.from("#costumes", {
+        tlEvents
+            .from("#events", {
+                autoAlpha: 0,
+                duration: 1,
+                ease: "power4.in",
+            })
+            .to("#events", {
+                autoAlpha: 1,
+                duration: 1,
+                ease: "power4.out",
+            })
+            .to("#events", {
+                autoAlpha: 0,
+                duration: 1,
+                ease: "power4.in",
+            });
+
+        let tlCostumes = gsap.timeline({
             scrollTrigger: {
                 id: "costumes",
                 trigger: "#costumes",
                 start: "top top",
-                end: "+=4000px",
+                end: "+=3000px",
                 pin: "#costumes",
-                toggleActions: "play none none none",
-                // markers: true,
+                scrub: true,
+                markers: true,
             },
-            autoAlpha: 0,
-            // opacity: 0,
-            duration: 1,
-            ease: "power4.in",
         });
 
-        // gsap.to("#text-1", {
-        //     scrollTrigger: {
-        //         id: "text-1",
-        //         trigger: "#text-1",
-        //         start: "top top",
-        //         end: "+=3000px",
-        //         toggleActions: "play none restart reverse",
-        //         pin: "#text-1",
-        //         // markers: true,
-        //     },
-        // });
+        tlCostumes
+            .from("#costumes", {
+                autoAlpha: 0,
+                duration: 1,
+                ease: "power4.in",
+            })
+            .to("#costumes", {
+                autoAlpha: 1,
+                duration: 1,
+                ease: "power4.out",
+            })
+            .to("#costumes", {
+                autoAlpha: 0,
+                duration: 1,
+                ease: "power4.in",
+            });
 
-        // gsap.to("#text-2", {
-        //     scrollTrigger: {
-        //         id: "text-2",
-        //         trigger: "#text-2",
-        //         start: "top top",
-        //         end: "+=3000px",
-        //         toggleActions: "play none restart reverse",
-        //         pin: "#text-2",
-        //         // markers: true,
-        //     },
-        // });
-        // gsap.to("#text-3", {
-        //     scrollTrigger: {
-        //         id: "text-3",
-        //         trigger: "#text-3",
-        //         start: "top top",
-        //         end: "+=3000px",
-        //         toggleActions: "play none restart reverse",
-        //         pin: "#text-3",
-        //         // markers: true,
-        //     },
-        // });
+        let tlText1 = gsap.timeline({
+            scrollTrigger: {
+                id: "text-1",
+                trigger: "#text-1",
+                start: "top top",
+                end: "+=2500px",
+                pin: "#text-1",
+                scrub: true,
+                markers: true,
+            },
+        });
+
+        tlText1
+            .from("#text-1", {
+                autoAlpha: 0,
+                duration: 1,
+                ease: "power4.in",
+            })
+            .to("#text-1", {
+                autoAlpha: 1,
+                duration: 1,
+                ease: "power4.out",
+            })
+            .to("#text-1", {
+                autoAlpha: 0,
+                duration: 1,
+                ease: "power4.in",
+            });
+
+        let tlText2 = gsap.timeline({
+            scrollTrigger: {
+                id: "text-2",
+                trigger: "#text-2",
+                start: "top top",
+                end: "+=2500px",
+                pin: "#text-2",
+                scrub: true,
+                markers: true,
+            },
+        });
+
+        tlText2
+            .from("#text-2", {
+                autoAlpha: 0,
+                duration: 1,
+                ease: "power4.in",
+            })
+            .to("#text-2", {
+                autoAlpha: 1,
+                duration: 1,
+                ease: "power4.out",
+            })
+            .to("#text-2", {
+                autoAlpha: 0,
+                duration: 1,
+                ease: "power4.in",
+            });
+
+        let tlText3 = gsap.timeline({
+            scrollTrigger: {
+                id: "text-3",
+                trigger: "#text-3",
+                start: "top top",
+                end: "+=2500px",
+                pin: "#text-3",
+                scrub: true,
+                markers: true,
+            },
+        });
+
+        tlText3
+            .from("#text-3", {
+                autoAlpha: 0,
+                duration: 1,
+                ease: "power4.in",
+            })
+            .to("#text-3", {
+                autoAlpha: 1,
+                duration: 1,
+                ease: "power4.out",
+            })
+            .to("#text-3", {
+                autoAlpha: 0,
+                duration: 1,
+                ease: "power4.in",
+            });
+
         gsap.to("#heading0", {
             autoAlpha: 1,
-            skewX: 0,
-            duration: 2,
+            delay: 1,
+            translateY: -40,
+            duration: 4,
             ease: "power4.out",
         });
+
         gsap.to("#heading-text-1", {
             scrollTrigger: {
                 id: "heading-text-1",
@@ -179,8 +275,20 @@ export default function Welcome({ auth }) {
     return (
         <>
             <Head>
-                <title>Home Page</title>
+                <title>
+                    Welcome to Our Samba Dance School in Perth | Experience the
+                    Joy of Dance
+                </title>
+                <meta
+                    name="description"
+                    content="Discover the passion of Brazilian Samba with our expert instructors in Perth. Whether you're a beginner or advanced dancer, we offer fun and energetic classes and workshops to suit all levels. Boost your fitness while learning this exciting dance style. Book your first lessons today!"
+                />
+                <meta
+                    name="keywords"
+                    content="Samba dance, Perth dance classes, Brazilian Samba, dance workshops, fitness, beginner dance classes, advanced dance lessons, carnival dance, carnival presentation, carnival show, samba show"
+                />
             </Head>
+
             <Layout user={auth.user}>
                 {/* HERO */}
                 <div className="flex flex-col justify-around  bg-cover bg-center h-screen w-full lg:bg-center ">
@@ -189,16 +297,14 @@ export default function Welcome({ auth }) {
                         className="w-full flex justify-end opacity-0 "
                     >
                         <h1 className=" max-w-md md:max-w-lg  tracking-widest text-6xl sm:text-[12vw] lg:text-[10vw] xl:text-[8.5vw]     text-white font-bold text-right pb-20 mt-16 mx-2 xl:mr-32 lg:mr-24 md:mr-10">
-                            dance bloc Bra
-                            <span className=" text-green-600">z</span>
-                            <span className=" text-yellow-300">i</span>l
+                            dance bloc Brazil
                         </h1>
                     </div>
                     <div
                         id="heading0"
-                        className=" w-full bg-gradient-to-b h-fit from-db-pink/90 from-30% to-db-pink/90 to-50% py-1  shadow-md shadow-db-pink/30 mb-12 opacity-0 skew-x-[-8deg]"
+                        className=" w-full h-fit py-1  shadow-md shadow-db-pink/30 mb-12 opacity-0 "
                     >
-                        <h1 className="min-w-full tracking-[0.2em] px-2 lg:px-28 text-2xl leading-8 font-normal text-center text-white">
+                        <h1 className="min-w-full tracking-[0.2em] px-2 lg:px-28 text-3xl leading-8 font-normal text-center text-white ">
                             Experience Perth's premier dance school, offering
                             diverse styles, a vibrant community, professional
                             event shows, and costume hire services.
@@ -218,11 +324,11 @@ export default function Welcome({ auth }) {
                     src="background.webp"
                     loading="lazy"
                     alt="Three Brazilian Carnival dancers posing in elaborate samba costumes with feathers and sequins"
-                    className="h-screen w-full object-cover  mb-[3000px] overflow-hidden"
+                    className="h-screen w-full object-cover  mb-[500px] overflow-hidden"
                 ></img>
                 <div
                     id="text-1"
-                    className="z-50 flex flex-col justify-center items-center pt-12 max-w-5xl h-screen mb-[1000px]"
+                    className="z-40 flex flex-col justify-center items-center pt-12 max-w-5xl h-screen mb-[800px]"
                 >
                     <div
                         id="heading-text-1"
@@ -254,11 +360,11 @@ export default function Welcome({ auth }) {
                     src="events1.webp"
                     loading="lazy"
                     alt="Brazilian samba dancers performing energetically on stage during a Carnival show"
-                    className="h-screen w-full object-cover  mb-[1000px] overflow-hidden"
+                    className="h-screen w-full object-cover  mb-[500px] overflow-hidden"
                 ></img>
                 <div
                     id="text-2"
-                    className="z-50 flex flex-col justify-center items-center pt-12 max-w-5xl h-screen mb-[3000px]"
+                    className="z-40 flex flex-col justify-center items-center pt-12 max-w-5xl h-screen mb-[1000px]"
                 >
                     <div
                         id="heading-text-2"
@@ -290,11 +396,11 @@ export default function Welcome({ auth }) {
                     src="costume.webp"
                     loading="lazy"
                     alt="Close-up of colorful feathers from a Brazilian Carnival samba costume available for hire"
-                    className="h-screen w-full object-cover  mb-[1000px] overflow-hidden"
+                    className="h-screen w-full object-cover  mb-[5s00px] overflow-hidden"
                 ></img>
                 <div
                     id="text-3"
-                    className="z-50 flex flex-col justify-center items-center pt-12 max-w-5xl h-screen mb-[3000px]"
+                    className="z-40 flex flex-col justify-center items-center pt-12 max-w-5xl h-screen mb-[900px]"
                 >
                     <div
                         id="heading-text-3"
@@ -321,7 +427,7 @@ export default function Welcome({ auth }) {
                         </p>
                     </div>
                 </div>
-                <div className="mb-[1000px]"></div>
+                <div className="mb-[2000px]"></div>
                 {/* <div
           id="danceclass"
           className=" flex flex-col justify-around bg-[url('/danceclass.webp')] bg-cover bg-center h-screen w-full mb-[2000px] overflow-hidden"
