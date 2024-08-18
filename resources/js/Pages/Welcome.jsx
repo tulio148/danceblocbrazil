@@ -6,181 +6,323 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { TextPlugin } from "gsap/dist/TextPlugin";
 
 export default function Welcome({ auth }) {
-  gsap.registerPlugin(ScrollTrigger);
-  gsap.registerPlugin(TextPlugin);
-  gsap.registerPlugin(useGSAP);
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(TextPlugin);
+    gsap.registerPlugin(useGSAP);
 
-  useGSAP(() => {
-    gsap.to("#logo-text", {
-      opacity: 1,
-      duration: 2,
-      ease: "power2.inOut",
+    useGSAP(() => {
+        gsap.to("#logo-text", {
+            opacity: 1,
+            duration: 2,
+            ease: "power2.inOut",
+        });
+        gsap.from("#logo-img", {
+            scrollTrigger: {
+                trigger: "#logo-img",
+                start: "center center",
+                end: "+=6000px",
+                pin: "#logo-img",
+                toggleActions: "play none none none",
+            },
+            autoAlpha: 0,
+            scale: 0.2,
+            duration: 4,
+        });
+
+        gsap.from("#dancer1", {
+            scrollTrigger: {
+                id: "dancer1",
+                trigger: "#dancer1",
+                start: "top top",
+                end: "+=5000px",
+                pin: "#dancer1",
+                toggleActions: "play  none none none",
+            },
+            autoAlpha: 0,
+            // opacity: 0,
+            duration: 1,
+            ease: "power4.in",
+        });
+
+        // gsap.from("#danceclass", {
+        //     scrollTrigger: {
+        //         id: "danceclass",
+        //         trigger: "#danceclass",
+        //         start: "top top",
+        //         end: "+=5000px",
+        //         pin: "#danceclass",
+        //         toggleActions: "play  none none none",
+        //         // markers: true,
+        //         // preventOverlaps: true,
+        //     },
+        //     // opacity: 0,
+        //     autoAlpha: 0,
+        //     duration: 1,
+        //     ease: "power4.in",
+        // });
+
+        gsap.from("#events", {
+            scrollTrigger: {
+                id: "events",
+                trigger: "#events",
+                start: "top top",
+                end: "+=5000px",
+                pin: "#events",
+                toggleActions: "play none none none",
+                // markers: true,
+            },
+            autoAlpha: 0,
+            // opacity: 0,
+            duration: 1,
+            ease: "power4.in",
+        });
+
+        gsap.from("#costumes", {
+            scrollTrigger: {
+                id: "costumes",
+                trigger: "#costumes",
+                start: "top top",
+                end: "+=5000px",
+                pin: "#costumes",
+                toggleActions: "play none none none",
+                // markers: true,
+            },
+            autoAlpha: 0,
+            // opacity: 0,
+            duration: 1,
+            ease: "power4.in",
+        });
+
+        gsap.to("#text-1", {
+            scrollTrigger: {
+                id: "text-1",
+                trigger: "#text-1",
+                start: "top top",
+                end: "+=3000px",
+                toggleActions: "play none restart reverse",
+                pin: "#text-1",
+                // markers: true,
+            },
+        });
+
+        gsap.to("#text-2", {
+            scrollTrigger: {
+                id: "text-2",
+                trigger: "#text-2",
+                start: "top top",
+                end: "+=3000px",
+                toggleActions: "play none restart reverse",
+                pin: "#text-2",
+                // markers: true,
+            },
+        });
+        gsap.to("#text-3", {
+            scrollTrigger: {
+                id: "text-3",
+                trigger: "#text-3",
+                start: "top top",
+                end: "+=3000px",
+                toggleActions: "play none restart reverse",
+                pin: "#text-3",
+                // markers: true,
+            },
+        });
+        gsap.to("#heading0", {
+            autoAlpha: 1,
+            skewX: 0,
+            duration: 2,
+            ease: "power4.out",
+        });
+        gsap.to("#heading-text-1", {
+            scrollTrigger: {
+                id: "heading-text-1",
+                trigger: "#heading-text-1",
+                start: "top center",
+                // end: " bottom",
+                toggleActions: "play none none none",
+                // markers: true,
+                // duration: 3,
+            },
+            text: {
+                value: "more than just steps",
+                speed: 1,
+            },
+        });
+
+        gsap.to("#heading-text-2", {
+            scrollTrigger: {
+                id: "heading-text-2",
+                trigger: "#heading-text-2",
+                start: "top center",
+                toggleActions: "play none none none",
+                // markers: true,
+            },
+            text: {
+                value: "beyond the studio",
+                speed: 1,
+            },
+        });
+        gsap.to("#heading-text-3", {
+            scrollTrigger: {
+                id: "heading-text-2",
+                trigger: "#heading-text-2",
+                start: "top center",
+                toggleActions: "play none none none",
+                // markers: true,
+            },
+            text: {
+                value: "dress to impress",
+                speed: 1,
+            },
+        });
     });
-    gsap.from("#logo-img", {
-      scrollTrigger: {
-        trigger: "#logo-img",
-        start: "center center",
-        end: "+=6000px",
-        pin: "#logo-img",
-        toggleActions: "play none none none",
-      },
-      autoAlpha: 0,
-      scale: 0.2,
-      duration: 4,
-    });
-
-    // gsap.from("#dancer1", {
-    //     scrollTrigger: {
-    //         id: "dancer1",
-    //         trigger: "#dancer1",
-    //         start: "top top",
-    //         end: "+=5000px",
-    //         pin: "#dancer1",
-    //         toggleActions: "play  none none none",
-    //     },
-    //     autoAlpha: 0,
-    //     // opacity: 0,
-    //     duration: 1,
-    //     ease: "power4.in",
-    // });
-
-    // gsap.from("#danceclass", {
-    //     scrollTrigger: {
-    //         id: "danceclass",
-    //         trigger: "#danceclass",
-    //         start: "top top",
-    //         end: "+=5000px",
-    //         pin: "#danceclass",
-    //         toggleActions: "play  none none none",
-    //         // markers: true,
-    //         // preventOverlaps: true,
-    //     },
-    //     // opacity: 0,
-    //     autoAlpha: 0,
-    //     duration: 1,
-    //     ease: "power4.in",
-    // });
-
-    // gsap.from("#events", {
-    //     scrollTrigger: {
-    //         id: "events",
-    //         trigger: "#events",
-    //         start: "top top",
-    //         end: "+=5000px",
-    //         pin: "#events",
-    //         toggleActions: "play none none none",
-    //         // markers: true,
-    //     },
-    //     autoAlpha: 0,
-    //     // opacity: 0,
-    //     duration: 1,
-    //     ease: "power4.in",
-    // });
-
-    // gsap.from("#costumes", {
-    //     scrollTrigger: {
-    //         id: "costumes",
-    //         trigger: "#costumes",
-    //         start: "top top",
-    //         end: "+=3000px",
-    //         pin: "#costumes",
-    //         toggleActions: "play none none none",
-    //         // markers: true,
-    //     },
-    //     autoAlpha: 0,
-    //     // opacity: 0,
-    //     duration: 1,
-    //     ease: "power4.in",
-    // });
-
-    gsap.to("#text-1", {
-      scrollTrigger: {
-        id: "text-1",
-        trigger: "#text-1",
-        start: "top top",
-        end: "+=3000px",
-        toggleActions: "play none restart reverse",
-        pin: "#text-1",
-        // markers: true,
-      },
-    });
-    gsap.to("#text-2", {
-      scrollTrigger: {
-        id: "text-2",
-        trigger: "#text-2",
-        start: "top top",
-        end: "+=3000px",
-        toggleActions: "play none restart reverse",
-        pin: "#text-2",
-        // markers: true,
-      },
-    });
-
-    gsap.to("#heading0", {
-      autoAlpha: 1,
-      skewX: 0,
-      duration: 2,
-      ease: "power4.out",
-    });
-    gsap.to("#heading-text-1", {
-      scrollTrigger: {
-        id: "heading-text-1",
-        trigger: "#heading-text-1",
-        start: "top center",
-        // end: " bottom",
-        toggleActions: "play none restart reverse",
-        // markers: true,
-        // duration: 3,
-      },
-      text: {
-        value: "more than just steps",
-        speed: 1,
-      },
-    });
-
-    gsap.to("#heading-text-2", {
-      scrollTrigger: {
-        id: "heading-text-2",
-        trigger: "#heading-text-2",
-        start: "top center",
-        toggleActions: "play none restart reverse",
-        // markers: true,
-      },
-      text: {
-        value: "beyond the studio",
-        speed: 1,
-      },
-    });
-  });
-  return (
-    <>
-      <Head>
-        <title>Home Page</title>
-      </Head>
-      <Layout user={auth.user}>
-        {/* HERO */}
-        <div className="flex flex-col justify-around bg-db-pink bg-cover bg-center h-screen w-full lg:bg-center ">
-          <div id="logo-text" className="w-full flex justify-end opacity-0">
-            <h1 className=" max-w-md md:max-w-lg  tracking-widest text-6xl sm:text-[12vw] lg:text-[10vw] xl:text-[8.5vw]     text-white font-bold text-right pb-20 mt-16 mx-2 lg:mr-10 ">
-              dance bloc Bra
-              <span className=" text-green-600">z</span>
-              <span className=" text-yellow-300">i</span>l
-            </h1>
-          </div>
-          <div
-            id="heading0"
-            className=" w-full bg-gradient-to-b h-fit from-db-pink/90 from-30% to-db-pink/90 to-50% py-1  shadow-md shadow-db-pink/30 mb-12 opacity-0 skew-x-[-8deg]"
-          >
-            <h1 className="min-w-full tracking-[0.2em] px-2 lg:px-28 text-2xl leading-8 font-normal text-center text-white">
-              Experience Perth's premier dance school, offering diverse styles,
-              a vibrant community, professional event shows, and costume hire
-              services.
-            </h1>
-          </div>
-        </div>
-        {/* LOGO ANIMATION */}
-
-        {/* <div
+    return (
+        <>
+            <Head>
+                <title>Home Page</title>
+            </Head>
+            <Layout user={auth.user}>
+                {/* HERO */}
+                <div className="flex flex-col justify-around  bg-cover bg-center h-screen w-full lg:bg-center ">
+                    <div
+                        id="logo-text"
+                        className="w-full flex justify-end opacity-0 "
+                    >
+                        <h1 className=" max-w-md md:max-w-lg  tracking-widest text-6xl sm:text-[12vw] lg:text-[10vw] xl:text-[8.5vw]     text-white font-bold text-right pb-20 mt-16 mx-2 xl:mr-32 lg:mr-24 md:mr-10">
+                            dance bloc Bra
+                            <span className=" text-green-600">z</span>
+                            <span className=" text-yellow-300">i</span>l
+                        </h1>
+                    </div>
+                    <div
+                        id="heading0"
+                        className=" w-full bg-gradient-to-b h-fit from-db-pink/90 from-30% to-db-pink/90 to-50% py-1  shadow-md shadow-db-pink/30 mb-12 opacity-0 skew-x-[-8deg]"
+                    >
+                        <h1 className="min-w-full tracking-[0.2em] px-2 lg:px-28 text-2xl leading-8 font-normal text-center text-white">
+                            Experience Perth's premier dance school, offering
+                            diverse styles, a vibrant community, professional
+                            event shows, and costume hire services.
+                        </h1>
+                    </div>
+                </div>
+                {/* LOGO ANIMATION */}
+                <img
+                    id="logo-img"
+                    src="/logonobg.webp"
+                    loading="lazy"
+                    alt="Dance Bloc Brazil logo featuring vibrant colors and festive design"
+                    className="w-[350px] mb-[2000px]"
+                />
+                <img
+                    id="dancer1"
+                    src="background.webp"
+                    loading="lazy"
+                    alt="Three Brazilian Carnival dancers posing in elaborate samba costumes with feathers and sequins"
+                    className="h-screen w-full object-cover  mb-[1000px] overflow-hidden"
+                ></img>
+                <div
+                    id="text-1"
+                    className="flex flex-col justify-center items-center pt-12 max-w-5xl h-screen mb-[3000px]"
+                >
+                    <div
+                        id="heading-text-1"
+                        className=" self-start mx-7 bg-white rounded-sm h-24 sm:h-fit  pr-[1px] text-db-pink/90 font-extrabold text-5xl md:text-7xl sm:mb-1"
+                    ></div>
+                    <div className=" max-w-3xl m-4 px-4 py-14 sm:p-8 border border-white/50 bg-gradient-to-b from-db-pink/80 to-db-pink/80  shadow-lg shadow-white/40 rounded-xl">
+                        <p className="text-white font-normal text-xl sm:text-2xl tracking-widest leading-8 md:text-justify ">
+                            At Dance Bloc Brazil, we believe dance is more than
+                            just physical activity. It&#39;s a celebration of
+                            culture, a way to connect with your body, and a
+                            chance to build a supportive community.
+                            <br />
+                            <br />
+                            Our experienced instructors are not just teachers;
+                            they are passionate artists who will guide you on
+                            your dance journey with enthusiasm and cultural
+                            understanding.
+                            <Link
+                                className="underline underline-offset-4 font-bold "
+                                href={route("mission")}
+                            >
+                                &nbsp;Learn about us!&nbsp;
+                            </Link>
+                        </p>
+                    </div>
+                </div>
+                <img
+                    id="events"
+                    src="events1.webp"
+                    loading="lazy"
+                    alt="Brazilian samba dancers performing energetically on stage during a Carnival show"
+                    className="h-screen w-full object-cover  mb-[1000px] overflow-hidden"
+                ></img>
+                <div
+                    id="text-2"
+                    className="flex flex-col justify-center items-center pt-12 max-w-5xl h-screen mb-[3000px]"
+                >
+                    <div
+                        id="heading-text-2"
+                        className="self-start mx-7 bg-white rounded-sm h-24 sm:h-fit pr-[1px] text-db-pink/90 font-extrabold text-5xl md:text-7xl sm:mb-1"
+                    ></div>
+                    <div className=" max-w-3xl m-4 px-4 py-10 sm:p-8 border border-white/50  bg-gradient-to-b from-db-pink/80 to-db-pink/80 shadow-lg shadow-white/40 rounded-xl">
+                        <p className="text-white font-normal text-xl sm:text-2xl tracking-widest leading-8 md:text-justify ">
+                            We don&#39;t just teach dance; we bring it to life!
+                            Dance Bloc Brazil is a sought-after entertainment
+                            company, adding a touch of Brazilian flair to events
+                            throughout Perth.
+                            <br />
+                            <br />
+                            We light up stages at weddings, corporate functions,
+                            festivals, and private parties, captivating
+                            audiences with our authentic costumes, high-energy
+                            routines, and infectious rhythms.
+                            <Link
+                                className="underline underline-offset-4 font-bold "
+                                href={route("events")}
+                            >
+                                &nbsp;Book your event!&nbsp;
+                            </Link>
+                        </p>
+                    </div>
+                </div>
+                <img
+                    id="costumes"
+                    src="costume.webp"
+                    loading="lazy"
+                    alt="Close-up of colorful feathers from a Brazilian Carnival samba costume available for hire"
+                    className="h-screen w-full object-cover  mb-[1000px] overflow-hidden"
+                ></img>
+                <div
+                    id="text-3"
+                    className="flex flex-col justify-center items-center pt-12 max-w-5xl h-screen mb-[3000px]"
+                >
+                    <div
+                        id="heading-text-3"
+                        className="self-start mx-7 bg-white rounded-sm h-24 sm:h-fit pr-[1px] text-db-pink/90 font-extrabold text-5xl md:text-7xl sm:mb-1"
+                    ></div>
+                    <div className="max-w-3xl m-4 px-4 py-10 sm:p-8 border border-white/50 bg-gradient-to-b from-db-pink/80 to-db-pink/80 shadow-lg shadow-white/40 rounded-xl">
+                        <p className="text-white font-normal text-xl sm:text-2xl tracking-widest leading-8 md:text-justify">
+                            At Dance Bloc Brazil, we offer a range of
+                            eye-catching, authentic costumes that will make your
+                            event unforgettable. Whether you're looking for
+                            dazzling outfits for a dance performance or a themed
+                            party, our costumes are designed to bring the
+                            excitement and color of Carnival right to you.
+                            <br />
+                            <br />
+                            Explore our collection and find the perfect ensemble
+                            to make your occasion truly special.{" "}
+                            <Link
+                                className="underline underline-offset-4 font-bold"
+                                href={route("costumes")}
+                            >
+                                &nbsp;Browse our costumes!&nbsp;
+                            </Link>
+                        </p>
+                    </div>
+                </div>
+                <div className="mb-[1000px]"></div>
+                {/* <div
           id="danceclass"
           className=" flex flex-col justify-around bg-[url('/danceclass.webp')] bg-cover bg-center h-screen w-full mb-[2000px] overflow-hidden"
         >
@@ -250,61 +392,7 @@ export default function Welcome({ auth }) {
             </Link>
           </div>
         </div> */}
-        <div
-          id="text-1"
-          className="flex flex-col justify-center items-center pt-12 max-w-5xl h-screen mb-[3000px]"
-        >
-          <div
-            id="heading-text-1"
-            className=" self-start mx-7 bg-white rounded-sm h-24 sm:h-fit  pr-[1px] text-db-pink/90 font-extrabold text-5xl md:text-7xl sm:mb-1"
-          ></div>
-          <div className=" max-w-3xl m-4 px-4 py-14 sm:p-8 border border-white/50 bg-gradient-to-b from-db-pink from-95% shadow-lg shadow-white/40 rounded-xl">
-            <p className="text-white font-normal text-xl sm:text-2xl tracking-widest leading-8 md:text-justify ">
-              At Dance Bloc Brazil, we believe dance is more than just physical
-              activity. It&#39;s a celebration of culture, a way to connect with
-              your body, and a chance to build a supportive community.
-              <br />
-              <br />
-              Our experienced instructors are not just teachers; they are
-              passionate artists who will guide you on your dance journey with
-              enthusiasm and cultural understanding.
-              <Link
-                className="underline underline-offset-4 font-bold "
-                href={route("mission")}
-              >
-                &nbsp;Learn about us!&nbsp;
-              </Link>
-            </p>
-          </div>
-        </div>
-        <div
-          id="text-2"
-          className="flex flex-col justify-center items-center pt-12 max-w-5xl h-screen mb-[3000px]"
-        >
-          <div
-            id="heading-text-2"
-            className="self-start mx-7 bg-white rounded-sm h-24 sm:h-fit pr-[1px] text-db-pink/90 font-extrabold text-5xl md:text-7xl sm:mb-1"
-          ></div>
-          <div className=" max-w-3xl m-4 px-4 py-10 sm:p-8 border border-white/50  bg-gradient-to-b from-db-pink from-95% shadow-lg shadow-white/40 rounded-xl">
-            <p className="text-white font-normal text-xl sm:text-2xl tracking-widest leading-8 md:text-justify ">
-              We don&#39;t just teach dance; we bring it to life! Dance Bloc
-              Brazil is a sought-after entertainment company, adding a touch of
-              Brazilian flair to events throughout Perth.
-              <br />
-              <br />
-              We light up stages at weddings, corporate functions, festivals,
-              and private parties, captivating audiences with our authentic
-              costumes, high-energy routines, and infectious rhythms.
-              <Link
-                className="underline underline-offset-4 font-bold "
-                href={route("events")}
-              >
-                &nbsp;Book your event!&nbsp;
-              </Link>
-            </p>
-          </div>
-        </div>
-      </Layout>
-    </>
-  );
+            </Layout>
+        </>
+    );
 }

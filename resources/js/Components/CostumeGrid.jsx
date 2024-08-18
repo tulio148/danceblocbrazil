@@ -61,11 +61,14 @@ export default function CostumeGrid() {
             </div>
             <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-[400px]">
                 {Costumes.map((costume) => (
-                    <CostumeCard
-                        costume={costume}
-                        key={costume.id}
-                        handle={handleCostumeClick}
-                    />
+                    <>
+                        <span className="sr-only">{costume.name}</span>
+                        <CostumeCard
+                            costume={costume}
+                            key={costume.id}
+                            handle={handleCostumeClick}
+                        />
+                    </>
                 ))}
                 {costumeSelected && (
                     <Modal

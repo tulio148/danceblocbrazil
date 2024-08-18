@@ -86,11 +86,11 @@ export default function About({ auth }) {
             duration: 2,
         });
 
-        gsap.from("#button", {
-            duration: 2,
-            delay: 0.3,
-            autoAlpha: 0,
-            ease: "power4.inOut",
+        gsap.to("#button", {
+            duration: 3,
+            delay: 1,
+            autoAlpha: 1,
+            ease: "power4.out",
         });
     });
 
@@ -114,17 +114,22 @@ export default function About({ auth }) {
             <div className="grid grid-rows-3  bg-[url('/about.webp')] bg-cover bg-left mb-[200px]  h-screen w-full lg:bg-center">
                 <button
                     id="button"
-                    className="row-start-2 justify-self-start mx-7"
-                    onClick={() => handleClick("heading-text-1", 200)}
+                    className="row-start-2 justify-self-start md:justify-self-center mx-7 opacity-0"
+                    onClick={() => handleClick("heading-text-1", 150)}
                 >
-                    <div className="animate-pulse ">
-                        <FontAwesomeIcon
-                            icon={faArrowDownLong}
-                            size="5x"
-                            style={{
-                                color: "#990093",
-                            }}
-                        />
+                    <div className="flex gap-3 items-center animate-bounce">
+                        <div className="text-white font-light bg-db-pink text-4xl max-w-40 sm:max-w-fit p-2 rounded sm:text-6xl">
+                            about us
+                        </div>
+                        <div className="">
+                            <FontAwesomeIcon
+                                icon={faArrowDownLong}
+                                size="3x"
+                                style={{
+                                    color: "white",
+                                }}
+                            />
+                        </div>
                     </div>
                 </button>
                 <div className="row-start-3 self-end max-w-2xl w-fit">
