@@ -122,7 +122,7 @@ export default function About({ auth }) {
                             icon={faArrowDownLong}
                             size="5x"
                             style={{
-                                color: "white",
+                                color: "#990093",
                             }}
                         />
                     </div>
