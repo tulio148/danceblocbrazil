@@ -50,8 +50,8 @@ Route::get('/privacy', function () {
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'contact'])->name('contact.contact');
-Route::post('/event-enquire', [ContactController::class, 'event'])->name('contact.event');
-Route::post('/costume-enquire', [ContactController::class, 'costume'])->name('contact.costume');
+Route::post('/samba-carnival-dance-events', [ContactController::class, 'event'])->name('contact.event');
+Route::post('/carnival-themed-costume-hire', [ContactController::class, 'costume'])->name('contact.costume');
 
 
 Route::get('/samba-dance-classes', [ClassesController::class, 'index'])->name('classes');

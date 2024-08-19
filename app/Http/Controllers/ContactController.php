@@ -26,37 +26,53 @@ class ContactController extends Controller
             'content' => 'required|string',
         ]);
 
-        Mail::to('info@danceblocbrazil.com')->send(new ContactFormMail($data));
+        try {
+            Mail::to('info@danceblocbrazil.com')->send(new ContactFormMail($data));
+            return Inertia::render('Contact', ['success' => true]);
+        } catch (\Exception $e) {
+            return Inertia::render('Contact', ['error' => 'Failed to send email']);
+        }
     }
     public function event(Request $request)
     {
         $data = $request->validate([
             'name' => 'required|string',
             'email' => 'required|email',
-            'phone' => 'required|string',
-            'date' => 'required|date',
-            'time' => 'required|string',
-            'eventType' => 'required|string',
-            'guests' => 'required|integer',
-            'location' => 'required|string',
+            'phone' => 'nullable|string',
+            'date' => 'nullable|date',
+            'time' => 'nullable|string',
+            'eventType' => 'nullable|string',
+            'guests' => 'nullable|integer',
+            'location' => 'nullable|string',
             'otherInfo' => 'nullable|string',
             'questions' => 'nullable|string',
         ]);
 
-        Mail::to('info@danceblocbrazil.com')->send(new InquiryFormMail($data));
+
+        try {
+            Mail::to('info@danceblocbrazil.com')->send(new InquiryFormMail($data));
+            return Inertia::render('Events/Events', ['success' => true]);
+        } catch (\Exception $e) {
+            return Inertia::render('Events/Events', ['error' => 'Failed to send email']);
+        }
     }
     public function costume(Request $request)
     {
         $data = $request->validate([
             'name' => 'required|string',
             'email' => 'required|email',
-            'phone' => 'required|string',
-            'date' => 'required|date',
+            'phone' => 'nullable|string',
+            'date' => 'nullable|date',
             'otherInfo' => 'nullable|string',
             'questions' => 'nullable|string',
             'costume_name' => 'required|string',
         ]);
 
-        Mail::to('info@danceblocbrazil.com')->send(new CostumeFormMail($data));
+        try {
+            Mail::to('info@danceblocbrazil.com')->send(new CostumeFormMail($data));
+            return Inertia::render('Costumes/Costumes', ['success' => true]);
+        } catch (\Exception $e) {
+            return Inertia::render('Costumes/Costumes', ['error' => 'Failed to send email']);
+        }
     }
 }

@@ -1,3 +1,4 @@
+import { usePage } from "@inertiajs/react";
 import { Head } from "@inertiajs/react";
 import gsap from "gsap";
 import Layout from "@/Layouts/Layout";
@@ -9,6 +10,7 @@ import { faArrowDownLong } from "@fortawesome/free-solid-svg-icons";
 import EventEnquire from "@/Components/EventEnquire";
 
 export default function Events({ auth }) {
+    const { success, error } = usePage().props;
     gsap.registerPlugin(ScrollTrigger);
     gsap.registerPlugin(TextPlugin);
     useGSAP(() => {
@@ -150,7 +152,7 @@ export default function Events({ auth }) {
                         className="tracking-widest text-5xl sm:text-6xl h-[48px] text-white/95  font-medium  my-4 px-4 text-right"
                     ></h1>
                 </div>
-                <EventEnquire />
+                <EventEnquire success={success} error={error} />
             </div>
         </Layout>
     );

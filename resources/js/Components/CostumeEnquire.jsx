@@ -1,12 +1,12 @@
-import { useForm } from "@inertiajs/react";
+import { useForm, usePage } from "@inertiajs/react";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
 import Modal from "@/Components/Modal";
-import SelectInput from "@/Components/SelectInput";
 import Textarea from "./Textarea";
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Spinner from "@/Components/Spinner";
 
 export default function CostumeEnquire({ costume }) {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -18,39 +18,47 @@ export default function CostumeEnquire({ costume }) {
         questions: "",
         costume_name: costume.name,
     });
-
+    const { success, error } = usePage().props;
     const [isOpen, setIsOpen] = useState(false);
 
-    const submit = (e) => {
+    useEffect(() => {
+        if (success) {
+            setIsOpen(true);
+            setTimeout(() => setIsOpen(false), 2000);
+        }
+    }, [success]);
+
+    const handleSubmit = (e) => {
         e.preventDefault();
-        post(route("contact.costume"), {
-            onSuccess: () => {
-                setIsOpen(true);
-                setTimeout(() => setIsOpen(false), 2000);
-            },
-        });
+        post(route("contact.costume"));
     };
 
     return (
         <>
-            <Modal show={isOpen} maxWidth="md">
+            <Modal show={isOpen} className="max-w-2xl">
                 <div className="p-6 h-full">
-                    <h5 className="text-md font-medium leading-6 text-center">
-                        Success!
-                    </h5>
-                    <p className="mt-2 text-sm text-gray-500">
-                        Your inquiry has been sent.
-                    </p>
+                    {success ? (
+                        <>
+                            <h5 className="text-xl text-db-pink font-medium leading-6 text-center">
+                                Success!
+                            </h5>
+                            <p className="mt-2 text-sm text-db-pink text-center">
+                                Your message has been sent.
+                            </p>
+                        </>
+                    ) : (
+                        <p className="text-red-500 text-center">{error}</p>
+                    )}
                 </div>
             </Modal>
             <form
-                onSubmit={submit}
+                onSubmit={handleSubmit}
                 className="flex flex-col justify-center items-center gap-3  "
             >
                 <div className="grid sm:grid-cols-2 gap-9 p-4 w-full">
                     <div className="sm:col-span-2">
                         <InputLabel
-                            value="Name"
+                            value="Name*"
                             className=" font-medium text-md mb-3 tracking-wider"
                         />
                         <TextInput
@@ -65,7 +73,7 @@ export default function CostumeEnquire({ costume }) {
                     </div>
                     <div className="sm:col-span-2">
                         <InputLabel
-                            value="Email"
+                            value="Email*"
                             className=" font-medium text-md mb-3 tracking-wider"
                         />
                         <TextInput
@@ -75,7 +83,6 @@ export default function CostumeEnquire({ costume }) {
                             value={data.email}
                             onChange={(e) => setData("email", e.target.value)}
                             required
-                            autoComplete="username"
                         />
 
                         <InputError className="mt-2" message={errors.email} />
@@ -143,9 +150,19 @@ export default function CostumeEnquire({ costume }) {
                         />
                     </div>
                 </div>
-                <PrimaryButton className="my-4 text-md" disabled={processing}>
-                    Send
-                </PrimaryButton>
+                <div className="flex justify-center items-center">
+                    {processing ? (
+                        <Spinner />
+                    ) : (
+                        <PrimaryButton
+                            className="justify-center w-fit mb-8"
+                            disabled={processing}
+                        >
+                            Send Message
+                        </PrimaryButton>
+                    )}
+                </div>
+                {error && <p className="text-red-500">{error}</p>}
             </form>
         </>
     );
