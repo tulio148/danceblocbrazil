@@ -129,7 +129,7 @@ export default function About({ auth }) {
                 <button
                     id="button"
                     className="row-start-2 justify-self-start md:justify-self-center mx-7 opacity-0"
-                    onClick={() => handleClick("heading-text-1", 150)}
+                    onClick={() => handleClick("heading-text-1", 180)}
                 >
                     <div className="flex gap-3 items-center animate-bounce">
                         <div className="text-white font-light bg-db-pink text-4xl max-w-40 sm:max-w-fit p-2 rounded sm:text-6xl">
