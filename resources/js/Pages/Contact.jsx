@@ -1,14 +1,16 @@
 import Layout from "@/Layouts/Layout";
 import { Head } from "@inertiajs/react";
 import Modal from "@/Components/Modal";
-import { useForm } from "@inertiajs/react";
+import { useForm, usePage } from "@inertiajs/react";
 import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
 import Textarea from "@/Components/Textarea";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { TextPlugin } from "gsap/all";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import Spinner from "@/Components/Spinner";
+
 export default function Contact({ auth }) {
     gsap.registerPlugin(TextPlugin);
     gsap.registerPlugin(useGSAP);
@@ -25,31 +27,41 @@ export default function Contact({ auth }) {
         subject: "",
         content: "",
     });
-
+    const { success, error } = usePage().props;
     const [isOpen, setIsOpen] = useState(false);
+
+    useEffect(() => {
+        if (success) {
+            setIsOpen(true);
+            setTimeout(() => setIsOpen(false), 2000);
+        }
+    }, [success]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        post(route("contact.contact"), {
-            onSuccess: () => {
-                setIsOpen(true);
-                setTimeout(() => setIsOpen(false), 2000);
-            },
-        });
+        post(route("contact.contact"));
     };
+
     return (
         <Layout user={auth.user}>
-            <Head title="Contact" />
+            <Head title="Contact Us" />
             <Modal show={isOpen} className="max-w-2xl">
                 <div className="p-6 h-full">
-                    <h5 className="text-xl font-medium leading-6 text-center">
-                        Success!
-                    </h5>
-                    <p className="mt-2 text-sm text-gray-500">
-                        Your message has been sent.
-                    </p>
+                    {success ? (
+                        <>
+                            <h5 className="text-xl text-db-pink font-medium leading-6 text-center">
+                                Success!
+                            </h5>
+                            <p className="mt-2 text-sm text-db-pink text-center">
+                                Your message has been sent.
+                            </p>
+                        </>
+                    ) : (
+                        <p className="text-red-500 text-center">{error}</p>
+                    )}
                 </div>
             </Modal>
+
             <div className="w-full max-w-lg mt-14">
                 <h1
                     id="header"
@@ -97,15 +109,19 @@ export default function Contact({ auth }) {
                     required
                     className="h-40"
                 />
-                <PrimaryButton
-                    className=" justify-center w-fit m-auto"
-                    disabled={processing}
-                >
-                    Send Message
-                </PrimaryButton>
-                {errors.message && (
-                    <p className="text-red-500">{errors.message}</p>
-                )}
+                <div className="flex justify-center items-center">
+                    {processing ? (
+                        <Spinner />
+                    ) : (
+                        <PrimaryButton
+                            className="justify-center w-fit"
+                            disabled={processing}
+                        >
+                            Send Message
+                        </PrimaryButton>
+                    )}
+                </div>
+                {error && <p className="text-red-500">{error}</p>}
             </form>
         </Layout>
     );

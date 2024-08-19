@@ -6,9 +6,10 @@ import SelectInput from "@/Components/SelectInput";
 import Textarea from "./Textarea";
 import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
-import { useState } from "react";
+import Spinner from "./Spinner";
+import { useState, useEffect } from "react";
 
-export default function EventEnquire({}) {
+export default function EventEnquire({ success, error }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: "",
         email: "",
@@ -24,13 +25,18 @@ export default function EventEnquire({}) {
 
     const [isOpen, setIsOpen] = useState(false);
 
+    useEffect(() => {
+        if (success) {
+            setIsOpen(true);
+            setTimeout(() => setIsOpen(false), 2000);
+        }
+    }, [success]);
+
     const submit = (e) => {
         e.preventDefault();
         post(route("contact.event"), {
-            onSuccess: () => {
-                setIsOpen(true);
-                setTimeout(() => setIsOpen(false), 2000);
-            },
+            preserveScroll: true,
+            preserveState: true,
         });
     };
 
@@ -38,12 +44,18 @@ export default function EventEnquire({}) {
         <>
             <Modal show={isOpen} className="max-w-2xl">
                 <div className="p-6 h-full">
-                    <h5 className="text-xl font-medium leading-6 text-center">
-                        Success!
-                    </h5>
-                    <p className="mt-2 text-sm text-gray-500">
-                        Your inquiry has been sent.
-                    </p>
+                    {success ? (
+                        <>
+                            <h5 className="text-xl text-db-pink font-medium leading-6 text-center">
+                                Success!
+                            </h5>
+                            <p className="mt-2 text-sm text-db-pink text-center">
+                                Your message has been sent.
+                            </p>
+                        </>
+                    ) : (
+                        <p className="text-red-500 text-center">{error}</p>
+                    )}
                 </div>
             </Modal>
             <form
@@ -150,7 +162,6 @@ export default function EventEnquire({}) {
                             onChange={(e) =>
                                 setData("eventType", e.target.value)
                             }
-                            required
                         ></SelectInput>
                     </div>
 
@@ -166,7 +177,6 @@ export default function EventEnquire({}) {
                             value={data.guests}
                             className="mt-1 block w-full"
                             onChange={(e) => setData("guests", e.target.value)}
-                            required
                         />
                     </div>
 
@@ -183,7 +193,6 @@ export default function EventEnquire({}) {
                             onChange={(e) =>
                                 setData("location", e.target.value)
                             }
-                            required
                         />
                     </div>
 
@@ -219,9 +228,19 @@ export default function EventEnquire({}) {
                         />
                     </div>
                 </div>
-                <PrimaryButton className="mt-1 text-xl" disabled={processing}>
-                    Send
-                </PrimaryButton>
+                <div className="mt-1">
+                    {processing ? (
+                        <Spinner />
+                    ) : (
+                        <PrimaryButton
+                            className="text-xl"
+                            disabled={processing}
+                        >
+                            Send
+                        </PrimaryButton>
+                    )}
+                </div>
+                {error && <p className="text-red-500 mt-2">{error}</p>}
             </form>
         </>
     );
