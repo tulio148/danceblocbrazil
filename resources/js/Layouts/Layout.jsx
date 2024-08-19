@@ -15,7 +15,6 @@ export default function ({ user, children }) {
     const buttonRef = useRef(null);
 
     useEffect(() => {
-        // if (typeof window !== "undefined") {
         function handleClickOutside(event) {
             if (
                 dropdownRef.current &&
@@ -35,9 +34,9 @@ export default function ({ user, children }) {
     }, []);
 
     const [isTransparent, setIsTransparent] = useState(true);
+    const [isHovered, setIsHovered] = useState(false);
 
     useEffect(() => {
-        // if (typeof window !== "undefined") {
         const handleScroll = () => {
             setIsTransparent(window.scrollY == 0);
         };
@@ -45,7 +44,7 @@ export default function ({ user, children }) {
 
         return () => window.removeEventListener("scroll", handleScroll);
         // }
-    }, []);
+    }, [isHovered]);
     return (
         <div>
             <Head>
@@ -61,6 +60,14 @@ export default function ({ user, children }) {
                         ? " bg-transparent lg:opacity-0   "
                         : " opacity-100 "
                 }`}
+                onMouseEnter={() => {
+                    setIsHovered(true);
+                    setIsTransparent(false);
+                }}
+                onMouseLeave={() => {
+                    setIsHovered(false);
+                    setIsTransparent(window.scrollY === 0);
+                }}
             >
                 <div className="py-2 px-6 lg:px-8  ">
                     <div className="max-w-7xl mx-auto  grid grid-cols-2 justify-between h-16">
