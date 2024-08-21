@@ -30,34 +30,41 @@ export default function ({ user, children }) {
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-        // }
     }, []);
 
-    const [isTransparent, setIsTransparent] = useState(true);
+    const [isTransparent, setIsTransparent] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
 
     useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsTransparent(true);
+        }, 1500);
+
+        return () => clearTimeout(timer);
+    }, []);
+
+    useEffect(() => {
         const handleScroll = () => {
-            setIsTransparent(window.scrollY == 0);
+            setIsTransparent(window.scrollY === 0);
         };
         window.addEventListener("scroll", handleScroll);
 
         return () => window.removeEventListener("scroll", handleScroll);
-        // }
     }, [isHovered]);
+
     return (
         <div>
             <Head>
                 <meta
                     head-key="description"
                     name="description"
-                    content="Whether you've always dreamed of mastering the captivating moves of Samba or the sassy flow of Funk, Dance Bloc Brazil is your gateway to South American rhythm. "
+                    content="Whether you've always dreamed of mastering the captivating moves of Samba or the sassy flow of Funk, Dance Bloc Brazil is your gateway to South American rhythm."
                 />
             </Head>
             <nav
-                className={`transition duration-1000 w-full fixed top-0 left-0  z-50 bg-db-pink ${
+                className={`transition-all duration-1000 ease-in-out w-full fixed top-0 left-0 z-50 bg-db-pink ${
                     isTransparent
-                        ? " bg-transparent lg:opacity-0   "
+                        ? " bg-transparent  lg:opacity-0"
                         : " opacity-100 "
                 }`}
                 onMouseEnter={() => {
@@ -69,9 +76,9 @@ export default function ({ user, children }) {
                     setIsTransparent(window.scrollY === 0);
                 }}
             >
-                <div className="py-2 px-6 lg:px-8  ">
-                    <div className="max-w-7xl mx-auto  grid grid-cols-2 justify-between h-16">
-                        <div className="  col-start-1 lg:col-span-2 justify-self-start flex justify-between items-center w-full">
+                <div className="py-2 px-6 lg:px-8">
+                    <div className="max-w-7xl mx-auto grid grid-cols-2 justify-between h-16">
+                        <div className="col-start-1 lg:col-span-2 justify-self-start flex justify-between items-center w-full">
                             <div className="shrink-0 flex items-center">
                                 <Link href="/">
                                     <span className="sr-only">Home</span>
@@ -90,7 +97,7 @@ export default function ({ user, children }) {
                                         (previousState) => !previousState
                                     )
                                 }
-                                className="inline-flex items-center justify-center p-2 "
+                                className="inline-flex items-center justify-center p-2"
                             >
                                 <span className="sr-only">Menu</span>
                                 {!showingNavigationDropdown ? (

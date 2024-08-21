@@ -15,7 +15,6 @@ export default function About({ auth }) {
     useGSAP(() => {
         gsap.to("#top-header1", {
             duration: 1,
-            delay: 0.5,
             text: {
                 value: "Sparkle, shine, ",
             },
@@ -23,7 +22,7 @@ export default function About({ auth }) {
         });
         gsap.to("#top-header2", {
             duration: 2,
-            delay: 2,
+            delay: 1,
             text: {
                 value: "samba time.",
             },
@@ -32,7 +31,7 @@ export default function About({ auth }) {
 
         gsap.from("#button", {
             duration: 2,
-            delay: 2,
+            delay: 1.5,
             autoAlpha: 0,
             ease: "power4.inOut",
         });
@@ -75,7 +74,7 @@ export default function About({ auth }) {
                     onClick={() => handleClick("head", 100)}
                 >
                     <div className="flex gap-3 items-center animate-bounce">
-                        <div className="text-white font-light bg-db-pink text-4xl max-w-52 sm:max-w-fit p-2 rounded sm:text-6xl">
+                        <div className="text-white font-light bg-db-green text-4xl max-w-52 sm:max-w-fit p-2 rounded sm:text-6xl">
                             see our collection
                         </div>
                         <div className="">
@@ -92,11 +91,11 @@ export default function About({ auth }) {
                 <div className="row-start-3 self-end max-w-2xl w-fit flex flex-col gap-1">
                     <div
                         id="top-header1"
-                        className="mx-7 text-white font-extralight h-14 sm:h-20 bg-db-pink text-5xl md:text-7xl "
+                        className="mx-7 text-white font-extralight h-14 sm:h-20 bg-db-green text-5xl md:text-7xl "
                     ></div>
                     <div
                         id="top-header2"
-                        className="mx-7 self-end text-db-pink font-light shadow-lg  h-14 sm:h-20 text-5xl md:text-7xl mb-20 text-right bg-white w-fit"
+                        className="mx-7 self-end text-db-green font-light shadow-lg  h-14 sm:h-20 text-5xl md:text-7xl mb-20 text-right bg-white w-fit"
                     ></div>
                 </div>
             </div>

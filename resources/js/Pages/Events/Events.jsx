@@ -90,7 +90,7 @@ export default function Events({ auth }) {
                     onClick={() => handleClick("top", 80)}
                 >
                     <div className="flex gap-3 items-center animate-bounce">
-                        <div className="text-white font-light bg-db-pink text-4xl max-w-40 sm:max-w-fit p-2 rounded sm:text-6xl">
+                        <div className="text-white font-light bg-db-green text-4xl max-w-40 sm:max-w-fit p-2 rounded sm:text-6xl">
                             enquire
                         </div>
                         <div className="">
@@ -107,7 +107,7 @@ export default function Events({ auth }) {
                 <div className="row-start-3 self-end max-w-2xl w-fit">
                     <div
                         id="top-header1"
-                        className="mx-7 text-white font-extralight h-14 sm:h-16 bg-db-pink text-6xl md:text-7xl text-right opacity-0"
+                        className="mx-7 text-white font-extralight h-14 sm:h-16 bg-db-green text-6xl md:text-7xl text-right opacity-0"
                     >
                         ignite
                     </div>
