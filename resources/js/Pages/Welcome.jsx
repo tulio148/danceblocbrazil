@@ -13,14 +13,12 @@ export default function Welcome({ auth }) {
     gsap.registerPlugin(useGSAP);
 
     useGSAP(() => {
-        // Animate logo text
         gsap.to("#logo-text", {
             opacity: 1,
             duration: 2,
             ease: "power2.inOut",
         });
 
-        // Animate logo image with scrollTrigger
         gsap.from("#logo-img", {
             scrollTrigger: {
                 trigger: "#logo-img",
@@ -34,7 +32,14 @@ export default function Welcome({ auth }) {
             duration: 4,
         });
 
-        // Function to create reusable timeline with scrollTrigger
+        gsap.to("#heading0", {
+            autoAlpha: 1,
+            delay: 1,
+            translateY: -50,
+            duration: 4,
+            ease: "power4.out",
+        });
+
         function createScrollTriggerTimeline(
             triggerId,
             elementId,
@@ -53,14 +58,13 @@ export default function Welcome({ auth }) {
             });
         }
 
-        // Create timelines for each section with fade-in/out animation
         const sections = [
             { id: "dancer1", duration: 5000 },
             { id: "events", duration: 5000 },
-            { id: "costumes", duration: 3000 },
-            { id: "text-1", duration: 2500 },
-            { id: "text-2", duration: 2500 },
-            { id: "text-3", duration: 2500 },
+            { id: "costumes", duration: 5000 },
+            { id: "text-1", duration: 3000 },
+            { id: "text-2", duration: 3000 },
+            { id: "text-3", duration: 3000 },
         ];
 
         sections.forEach((section) => {
@@ -86,57 +90,31 @@ export default function Welcome({ auth }) {
                 });
         });
 
-        // Animate heading with translateY
-        gsap.to("#heading0", {
-            autoAlpha: 1,
-            delay: 1,
-            translateY: -40,
-            duration: 6,
-            ease: "power4.out",
-        });
+        function HeadingAnimation(id) {
+            const heading = gsap.timeline({
+                scrollTrigger: {
+                    id: id,
+                    trigger: "#" + id,
+                    start: "top top",
+                    toggleActions: "play none none none",
+                    // markers: true,
+                },
+            });
+            return heading;
+        }
+        const headings = ["heading-text-1", "heading-text-2", "heading-text-3"];
 
-        // Animate heading text with scrollTrigger (corrected trigger IDs)
-        gsap.to("#heading-text-1", {
-            scrollTrigger: {
-                id: "heading-text-1",
-                trigger: "#heading-text-1",
-                start: "top top",
-                toggleActions: "play none none none",
-                markers: true,
-            },
-            text: {
-                delay: 0.5,
-                value: "more than just steps",
-            },
-            duration: 2,
-            ease: "power4.out",
-        });
-
-        gsap.to("#heading-text-2", {
-            scrollTrigger: {
-                id: "heading-text-2",
-                trigger: "#heading-text-2",
-                start: "top center",
-                toggleActions: "play none none none",
-            },
-            text: {
-                value: "beyond the studio",
-                speed: 1,
-            },
-        });
-        gsap.to("#heading-text-3", {
-            scrollTrigger: {
-                id: "heading-text-3",
-                trigger: "#heading-text-3",
-                start: "top center",
-                toggleActions: "play none none none",
-            },
-            text: {
-                value: "dress to impress",
-                speed: 1,
-            },
+        headings.forEach((id) => {
+            const tl = HeadingAnimation(id);
+            tl.from(`#${id}`, {
+                autoAlpha: 0,
+                translateY: -40,
+                duration: 6,
+                ease: "power4.out",
+            });
         });
     });
+
     return (
         <>
             <Head>
@@ -176,6 +154,7 @@ export default function Welcome({ auth }) {
 
                 <TextSection
                     id="text-1"
+                    heading="more than just steps"
                     text="At Dance Bloc Brazil, we believe dance is more than just physical activity. It's a celebration of culture, a way to connect with your body, and a chance to build a supportive community."
                     linkHref={route("mission")}
                 />
@@ -190,6 +169,7 @@ export default function Welcome({ auth }) {
 
                 <TextSection
                     id="text-2"
+                    heading="beyond the studio"
                     text="We don't just teach dance; we bring it to life! Dance Bloc Brazil is a sought-after entertainment company, adding a touch of Brazilian flair to events throughout Perth."
                     linkHref={route("events")}
                 />
@@ -204,10 +184,11 @@ export default function Welcome({ auth }) {
 
                 <TextSection
                     id="text-3"
+                    heading="dress to impress"
                     text="At Dance Bloc Brazil, we offer a range of eye-catching, authentic costumes that will make your event unforgettable. Whether you're looking for dazzling outfits for a dance performance or a themed party, our costumes are designed to bring the excitement and color of Carnival right to you."
                     linkHref={route("costumes")}
                 />
-                <div className="mb-[2000px]"></div>
+                <div className="mb-[4000px]"></div>
             </Layout>
         </>
     );
