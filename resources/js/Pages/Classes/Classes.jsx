@@ -13,7 +13,7 @@ export default function Classes({ auth, classes, terms }) {
     gsap.registerPlugin(TextPlugin);
     gsap.registerPlugin(useGSAP);
     gsap.registerPlugin(ScrollTrigger);
-
+    console.log(terms, classes);
     useGSAP(() => {
         gsap.to("#buttons", {
             duration: 3,
@@ -40,15 +40,6 @@ export default function Classes({ auth, classes, terms }) {
             autoAlpha: 1,
             ease: "power4.out",
         });
-
-        // gsap.to("#top-header2", {
-        //     duration: 1.2,
-        //     delay: 1,
-        //     text: {
-        //         value: "samba groove",
-        //     },
-        //     ease: "power4.out",
-        // });
 
         gsap.to("#header-terms", {
             scrollTrigger: {
@@ -99,6 +90,7 @@ export default function Classes({ auth, classes, terms }) {
     };
     const today = new Date();
     const groupedData = groupClassesByTerm(terms, classes);
+    console.log(groupedData);
     const nextCourse = groupedData.find(
         (term) => new Date(term.start_date) > today
     );

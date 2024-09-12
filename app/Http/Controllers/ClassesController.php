@@ -15,13 +15,18 @@ class ClassesController extends Controller
     public function index()
     {
         $now = new \DateTime();
-
+        $tomorrow = (clone $now)->modify('+1 day');
         $classes = Classes::all()->filter(function ($class) use ($now) {
             return new \DateTime($class->datetime) > $now;
         })->values();
 
-        $terms = Terms::all()->filter(function ($term) use ($now) {
-            return new \DateTime($term->end_date) > $now;
+        $terms = Terms::all()->filter(function ($term) use ($tomorrow) {
+            if (empty($term->end_date)) {
+                return false; // Skip terms with no end_date
+            }
+
+            $termEndDate = new \DateTime($term->end_date);
+            return $termEndDate <= $tomorrow;
         })->values();
 
         return Inertia::render('Classes/Classes', [
